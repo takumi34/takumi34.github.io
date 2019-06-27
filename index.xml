@@ -22,12 +22,19 @@
     </item>
     
     <item>
-      <title>test</title>
-      <link>https://takumi34.github.io/about-hugo/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      <title>About Me</title>
+      <link>https://takumi34.github.io/about-me/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://takumi34.github.io/about-hugo/</guid>
-      <description></description>
+      <guid>https://takumi34.github.io/about-me/</guid>
+      <description> EDUCATION  KEIO UNIVERSITY,Tokyo
+ 2015-2019
+ Bachelor of law in laws
+   COMPUTER SKILLS  C, C++, Python3, Ruby, Java, Go, Swift
+ Spring Boot, Ruby on Rails
+ HTML, CSS, Vue.js
+ AWS, Docker, k8s
+  </description>
     </item>
     
   </channel>
