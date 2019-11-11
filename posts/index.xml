@@ -7,8 +7,39 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sat, 08 Jun 2019 18:50:57 +0900</lastBuildDate>
+		<lastBuildDate>Tue, 12 Nov 2019 08:41:11 +0900</lastBuildDate>
 		<atom:link href="https://takumi34.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Gotunes10</title>
+			<link>https://takumi34.github.io/posts/gotunes10/</link>
+			<pubDate>Tue, 12 Nov 2019 08:41:11 +0900</pubDate>
+			
+			<guid>https://takumi34.github.io/posts/gotunes10/</guid>
+			<description> Go Relese 10周年記念パーティに行ってきた  場所はメルカリで行われた。 Go Release 10 Year Anniversary Party in Tokyo Goの歴史やGoコミュニティーの歴史を振り返るようなセッションが多かった。  セッションの内容  yoshiさんやtenntennさんの発表があった。 特にyoshiさんの発表は面白かった。  内容としては、Goの歴史を振り返るもので、ALGOLから始まり、concurrencyの歴史、Goを作った人たちが出会ったときの話、Goのリリースの歴史など、知らないことが多かった。 そのうちスライドの資料が公開されると思うので見ておくと良いと思う。   </description>
+			<content type="html"><![CDATA[
+
+<h1 id="go-relese-10周年記念パーティに行ってきた">Go Relese 10周年記念パーティに行ってきた</h1>
+
+<ul>
+<li>場所はメルカリで行われた。</li>
+<li><a href="https://gocon.connpass.com/event/153665/">Go Release 10 Year Anniversary Party in Tokyo</a></li>
+<li>Goの歴史やGoコミュニティーの歴史を振り返るようなセッションが多かった。</li>
+</ul>
+
+<h2 id="セッションの内容">セッションの内容</h2>
+
+<ul>
+<li>yoshiさんやtenntennさんの発表があった。</li>
+<li>特にyoshiさんの発表は面白かった。
+
+<ul>
+<li>内容としては、Goの歴史を振り返るもので、ALGOLから始まり、concurrencyの歴史、Goを作った人たちが出会ったときの話、Goのリリースの歴史など、知らないことが多かった。</li>
+<li>そのうちスライドの資料が公開されると思うので見ておくと良いと思う。</li>
+</ul></li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Test</title>
