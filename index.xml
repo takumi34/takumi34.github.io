@@ -7,13 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 12 Nov 2019 08:41:11 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 15 Nov 2019 03:43:42 +0900</lastBuildDate>
     
 	<atom:link href="https://takumi34.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Gotunes10</title>
+      <title>JSUGで発表をした話</title>
+      <link>https://takumi34.github.io/posts/jsug_springone/</link>
+      <pubDate>Fri, 15 Nov 2019 03:43:42 +0900</pubDate>
+      
+      <guid>https://takumi34.github.io/posts/jsug_springone/</guid>
+      <description>  JSUGとは日本Springユーザ会のことを指す。日本のSpringコミュニティである。私はそこで開かれたSpring One2019報告会で発表した。
+Spring Oneとは Spring OneとはPivotal社の主催する世界最大のSpringに関するカンファレンスだ。そこではSpring FrameworkなどSpringについて様々な発表が行われる。私は今回これに参加した。今年はアメリカのAustinで開催された。
+JSUGでの発表 Spring OneではKotlinやAzure Spring Cloudなど様々なセッションを聞いた。特に印象に残ったセッションとしてSpring Initializrのセッションがあった( Creating &amp;ldquo;The Second Best Place on the Internet&amp;rdquo; with Spring Initializr)。この内容をもとにJSUGで発表をした。
+ 内容としては、Spring Initializrの発展の歴史とSpring Initlizrのカスタマイズの話である。
+ デモコードは以下にある。READMEを読めば大体分かるはず。(https://github.com/takumi34/custom-spring-initializr)
+ スライドは以下。
+   Spring Initializrをハックする-カスタマイズを通してその内部実装を覗く  from apkiban 
+  </description>
+    </item>
+    
+    <item>
+      <title>Golang10周年記念パーティーに行ってきた話</title>
       <link>https://takumi34.github.io/posts/gotunes10/</link>
       <pubDate>Tue, 12 Nov 2019 08:41:11 +0900</pubDate>
       
