@@ -18,7 +18,7 @@
       <pubDate>Fri, 22 Nov 2019 04:40:32 +0900</pubDate>
       
       <guid>https://takumi34.github.io/posts/line-dev-day-2019/</guid>
-      <description>Line Dev Day とは  LINE DEV DAY会場    正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は 11&amp;frasl;21-11&amp;frasl;22 にお台場で開催された。私は今回両日ともに参加した。私は以前LINEにエンジニアインターンに参加していたということもあってLine Dev Dayに参加したいと思っていた。  まず驚いたこと  受付では顔認証による参加者確認が行われていた。私は LINE アプリによる確認を行うレーンに並んで板が、やはり顔認証確認の方が受付のスピードが早かったように感じた。精度も良いのではないだろうか。  カンファレンスの内容について  発表は、キーノート、セッション、ブース、ポスター発表、各種ハンズオンという構成になっている。 両日とも午前中はキーノート、午後にセッションなどがある。セッションには各業界の有名人を招待しているようだった。例えば、甘利さんや徳丸さんが招待されていた。 今回、二日間で私は一回２時間のハンズオンを２つ受けたのでセッションはあまり聞けなかった。 以下で私が聞いて面白かったと思うセッションやハンズオンについて紹介したいと思う。  ハンズオン Learning Session について  一日目には「仕事をよりクリエイティブにするための『Learning Session』の実践」というハンズオンを受けた。 Learning Session とは LINE 社内で行っているモブプロの手法を使った勉強会のことを言うらしい。私は普段からペアプロやモブプロを行っており、自分としても好きな XP の手法なので参加した。Learning Session については下記のブログに纏められているので気になった方は読むといいだろう。(仕事をよりクリエイティブにするための「Learning Session」ノススメ ) ハンズオンがスタートしてからモブプロの軽い説明があり、それから各チームに別れた。チームは各々がやってみたいこと（例えば、circle ci や flutter や k8s など）を出し合い、自分の入りたいチームに入るというものだった。私は flutter を始めようと思っていたので flutter のチームに参加した。 それから１時間半ほどモブプロを行って、結果的には環境構築が終わって hello world が成功したところで終わってしまった。ダウンロードなどにどうしても時間が掛かってしまうので、その間は Dart や flutter のチュートリアルを眺めたり、他のフレームワーク（React や Xamarin など）の違いなどを調べていた。 ハンズオンの講師の方に「モブプログラミング・ベストプラクティス」を読んで実際にモブプロをしているという話をすると、モブプロ創始者の一人である Chris Lucian さんの論文を読むと良いと教えて頂いたので今度読もうと思う。  Armeria について  二日目には「Armeria と WebFlux でマイクロサービスを強化」のハンズオンを受けた。 Armeria とは LINE の OSS で非同期 RPC/API のためのライブラリーだ(https://github.</description>
+      <description>Line Dev Day とは LINE DEV DAY会場 正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は 11&amp;frasl;21-11&amp;frasl;22 にお台場で開催された。私は今回両日</description>
     </item>
     
     <item>
@@ -27,14 +27,7 @@
       <pubDate>Fri, 15 Nov 2019 03:43:42 +0900</pubDate>
       
       <guid>https://takumi34.github.io/posts/jsug_springone/</guid>
-      <description>  JSUGとは日本Springユーザ会のことを指す。日本のSpringコミュニティである。私はそこで開かれたSpring One2019報告会で発表した。
-Spring Oneとは Spring OneとはPivotal社の主催する世界最大のSpringに関するカンファレンスだ。そこではSpring FrameworkなどSpringについて様々な発表が行われる。私は今回これに参加した。今年はアメリカのAustinで開催された。
-JSUGでの発表 Spring OneではKotlinやAzure Spring Cloudなど様々なセッションを聞いた。特に印象に残ったセッションとしてSpring Initializrのセッションがあった( Creating &amp;ldquo;The Second Best Place on the Internet&amp;rdquo; with Spring Initializr)。この内容をもとにJSUGで発表をした。
- 内容としては、Spring Initializrの発展の歴史とSpring Initlizrのカスタマイズの話である。
- デモコードは以下にある。READMEを読めば大体分かるはず。(https://github.com/takumi34/custom-spring-initializr)
- スライドは以下。
-   Spring Initializrをハックする-カスタマイズを通してその内部実装を覗く  from apkiban 
-  </description>
+      <description>JSUGとは日本Springユーザ会のことを指す。日本のSpringコミュニティである。私はそこで開かれたSpring One2019報告会で</description>
     </item>
     
     <item>
@@ -43,7 +36,7 @@ JSUGでの発表 Spring OneではKotlinやAzure Spring Cloudなど様々なセ�
       <pubDate>Tue, 12 Nov 2019 08:41:11 +0900</pubDate>
       
       <guid>https://takumi34.github.io/posts/gotunes10/</guid>
-      <description> Go Relese 10周年記念パーティに行ってきた  場所はメルカリで行われた。 Go Release 10 Year Anniversary Party in Tokyo Goの歴史やGoコミュニティーの歴史を振り返るようなセッションが多かった。  セッションの内容  yoshiさんやtenntennさんの発表があった。 特にyoshiさんの発表は面白かった。  内容としては、Goの歴史を振り返るもので、ALGOLから始まり、concurrencyの歴史、Goを作った人たちが出会ったときの話、Goのリリースの歴史など、知らないことが多かった。 そのうちスライドの資料が公開されると思うので見ておくと良いと思う。   </description>
+      <description>Go Relese 10周年記念パーティに行ってきた 場所はメルカリで行われた。 Go Release 10 Year Anniversary Party in Tokyo Goの歴史やGoコミュニティーの歴史を振り返るようなセッション</description>
     </item>
     
     <item>
@@ -52,7 +45,7 @@ JSUGでの発表 Spring OneではKotlinやAzure Spring Cloudなど様々なセ�
       <pubDate>Sat, 08 Jun 2019 18:50:57 +0900</pubDate>
       
       <guid>https://takumi34.github.io/posts/test/</guid>
-      <description> test ブログ始めました </description>
+      <description>test ブログ始めました</description>
     </item>
     
     <item>
