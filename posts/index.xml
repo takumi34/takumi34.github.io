@@ -6,8 +6,69 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Fri, 22 Nov 2019 04:40:32 +0900</lastBuildDate>
+		<lastBuildDate>Sat, 04 Jan 2020 04:15:28 +0900</lastBuildDate>
 		<atom:link href="https://takumi34.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>CourseraでGCPのコースを修了した話</title>
+			<link>https://takumi34.github.io/posts/gcp-coursera/</link>
+			<pubDate>Sat, 04 Jan 2020 04:15:28 +0900</pubDate>
+			
+			<guid>https://takumi34.github.io/posts/gcp-coursera/</guid>
+			<description>とりあえず修了したのは以下 Google Cloud Platform Fundamentals: Core Infrastructure 日本語版 Essential Cloud Infrastructure: Foundation 日本語版 Architecting with Google Kubernetes Engine: Foundations 日本語版 Courseraとは オンラインで色々な授業が受けられるサー</description>
+			<content type="html"><![CDATA[
+
+<ul>
+<li>とりあえず修了したのは以下
+
+<ul>
+<li>Google Cloud Platform Fundamentals: Core Infrastructure 日本語版</li>
+<li>Essential Cloud Infrastructure: Foundation 日本語版</li>
+<li>Architecting with Google Kubernetes Engine: Foundations 日本語版</li>
+</ul></li>
+</ul>
+
+<h2 id="courseraとは">Courseraとは</h2>
+
+<ul>
+<li>オンラインで色々な授業が受けられるサービス。有名なので知ってる人も多いはず。</li>
+<li>ただやる気がないと全然続かないのでそこが一番難しいと思う。かく言う私も昔受けてみたものの途中で挫折したことがある。</li>
+<li>講座を修了すると修了証が貰える。例えばこういう感じ。
+<figure class="center">
+    <img src="/images/coursera_k8s.png" width="320" height="640"/> <figcaption>
+            <h4>修了証</h4>
+        </figcaption>
+</figure>
+</li>
+</ul>
+
+<h2 id="受けた理由">受けた理由</h2>
+
+<ul>
+<li>多分GCPを勉強するにはCourseraを受けるのが現時点では一番良い方法なのではないだろうか。Googleが公式に提供しているものなので講座の内容も信頼できるし、Qwiklabsをやることによって実際にGCPを動かすこともできるので至れり尽くせりだと言える。</li>
+</ul>
+
+<h2 id="内容">内容</h2>
+
+<ul>
+<li>講義の動画を見る→問題を解く→Qwiklabsで実際にGCPを触わる、ということの繰り返し。</li>
+</ul>
+
+<h2 id="感想">感想</h2>
+
+<ul>
+<li>同じことの繰り返しで途中で飽きるので、気を強く持つのが大事。</li>
+<li>Qwiklabsのシステムは素晴らしいのだが、途中にあるテストに落ちたときに何が原因で落ちたのかがわからないので、そこを改善してほしい。</li>
+<li>今回受けた講座は日本語版のものなのだが、やはり翻訳があまり良くない部分が多い。なので結局英語で聞いて読んでいた。</li>
+</ul>
+
+<h1 id="今後">今後</h1>
+
+<ul>
+<li>GCPの講座は他にもたくさんあるので、暇なときにまた受けようと思う。</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Line Dev Day 2019に行ってきた話</title>
