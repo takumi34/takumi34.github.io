@@ -6,8 +6,51 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sat, 04 Jan 2020 04:15:28 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 26 Apr 2020 09:31:12 +0900</lastBuildDate>
 		<atom:link href="https://takumi34.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>JMOOCでOSのコースを修了した話</title>
+			<link>https://takumi34.github.io/posts/jmooc-os/</link>
+			<pubDate>Sun, 26 Apr 2020 09:31:12 +0900</pubDate>
+			
+			<guid>https://takumi34.github.io/posts/jmooc-os/</guid>
+			<description>JMOOCとは 流行りのMOOCの日本版。 修了証 受けたコース 「オペレーティングシステム2020」を受けた。 内容としては、OSの知識を俯瞰するよ</description>
+			<content type="html"><![CDATA[
+
+<h2 id="jmoocとは">JMOOCとは</h2>
+
+<ul>
+<li>流行りのMOOCの日本版。
+<figure class="center">
+    <img src="/images/certificationOS.PNG" width="320" height="640"/> <figcaption>
+            <h4>修了証</h4>
+        </figcaption>
+</figure>
+</li>
+</ul>
+
+<h2 id="受けたコース">受けたコース</h2>
+
+<ul>
+<li>「オペレーティングシステム2020」を受けた。</li>
+<li>内容としては、OSの知識を俯瞰するような感じで、メモリ管理やプロセス、ファイルシステムなど基本を押さえた内容だった。</li>
+</ul>
+
+<h2 id="受けた理由">受けた理由</h2>
+
+<ul>
+<li>最近Linuxカーネルのソースコードを読んでいるけれど、よく分からない単語や知らない仕組みがあり、やっぱり難しい。そういう意味で、OSの基礎を再度固めたかったから。</li>
+</ul>
+
+<h2 id="感想">感想</h2>
+
+<ul>
+<li>事前にOSの教科書を読んだり、OS自作の本も読んでいたので、特に問題なく受講できた。</li>
+<li>全て映像授業なのかと思っていたが、ほとんどはPDFの資料であった。そのレジュメには誤字があったりもしたが、内容の質は良かったと思う。</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>CourseraでGCPのコースを修了した話</title>
