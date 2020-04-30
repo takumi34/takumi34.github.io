@@ -26,12 +26,10 @@
 <h3 id="実施した内容">実施した内容</h3>
 
 <ul>
-<li><a href="https://github.com/takumi34/nlp_100">コードはここに置いてある</a></li>
-</ul>
+<li><p><a href="https://github.com/takumi34/nlp_100">コードはここに置いてある</a></p>
 
-<h4 id="00">00</h4>
+<h4 id="00">00</h4></li>
 
-<ul>
 <li><p>コード</p>
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="k">print</span><span class="p">(</span><span class="s1">&#39;stressed&#39;</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></code></pre></div></li>
 
