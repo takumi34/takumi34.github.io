@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NLP on chika</title>
+    <link>https://takumi34.github.io/tags/nlp/</link>
+    <description>Recent content in NLP on chika</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 30 Apr 2020 16:25:34 +0900</lastBuildDate>
+    
+	<atom:link href="https://takumi34.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>自然言語処理100本ノック第1章を解く</title>
+      <link>https://takumi34.github.io/posts/nlp100-chapter1/</link>
+      <pubDate>Thu, 30 Apr 2020 16:25:34 +0900</pubDate>
+      
+      <guid>https://takumi34.github.io/posts/nlp100-chapter1/</guid>
+      <description>自然言語処理100本ノック2020が公開されたので、解いてみた。 2015年のバージョンは昔少しだけ解いたことがあったが、全部やってたわけでは</description>
+    </item>
+    
+  </channel>
+</rss>
