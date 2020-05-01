@@ -6,8 +6,100 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Thu, 30 Apr 2020 16:25:34 +0900</lastBuildDate>
+		<lastBuildDate>Fri, 01 May 2020 11:09:14 +0900</lastBuildDate>
 		<atom:link href="https://takumi34.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>自然言語処理100本ノック第2章を解く</title>
+			<link>https://takumi34.github.io/posts/nlp100-chapter2/</link>
+			<pubDate>Fri, 01 May 2020 11:09:14 +0900</pubDate>
+			
+			<guid>https://takumi34.github.io/posts/nlp100-chapter2/</guid>
+			<description>自然言語処理100本ノック2020を第1章に引き続き、第2章をやる。今回はUNIXコマンドでテキストの処理をするという章。 普段からgrepと</description>
+			<content type="html"><![CDATA[<ul>
+<li><a href="https://nlp100.github.io/ja/">自然言語処理100本ノック2020</a>を第1章に引き続き、第2章をやる。今回はUNIXコマンドでテキストの処理をするという章。</li>
+<li>普段からgrepとかsedとかはよく使っているが、改めて今回やってみるとパラメータの指定など、気付きが多かった。</li>
+</ul>
+<h3 id="実施した内容">実施した内容</h3>
+<ul>
+<li><a href="https://github.com/takumi34/nlp_100">コードはここに置いてある</a></li>
+</ul>
+<h4 id="10">10</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">wc -l &lt; popular-names.txt
+</code></pre></div><ul>
+<li>出力</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="m">2780</span>
+</code></pre></div><h4 id="11">11</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">tr  <span class="s1">&#39;\t&#39;</span> <span class="s1">&#39; &#39;</span> &lt; popular-names.txt &gt; popular-names2.txt 
+</code></pre></div><h4 id="12">12</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">cut -d <span class="s1">&#39; &#39;</span> -f <span class="m">1</span> popular-names2.txt &gt; col1.txt
+cut -d <span class="s1">&#39; &#39;</span> -f <span class="m">2</span> popular-names2.txt &gt; col2.txt
+</code></pre></div><h4 id="13">13</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">paste  col1.txt col2.txt &gt; marge.txt
+</code></pre></div><h4 id="14">14</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">head -n <span class="m">4</span> popular-names.txt
+</code></pre></div><h4 id="15">15</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">tail -n <span class="m">4</span> popular-names.txt
+</code></pre></div><h4 id="16">16</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">split -n <span class="m">3</span> -d popular-names.txt split-
+</code></pre></div><ul>
+<li>popular-names.txtを行単位で三分割して、split-00.txtとsplit-01.txtとsplit-02.txtを作成する。</li>
+</ul>
+<h4 id="17">17</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">cut -f <span class="m">1</span> popular-names.txt <span class="p">|</span> sort <span class="p">|</span> uniq
+</code></pre></div><ul>
+<li>uniqをかける前にsortする。C++でやりなれた操作。（uniqsortを忘れがちなので、そのマクロを組んでいるぐらい笑。）</li>
+</ul>
+<h4 id="18">18</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">sort -rk <span class="m">3</span>  popular-names.txt
+</code></pre></div><h4 id="19">19</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">cut -f <span class="m">1</span> popular-names.txt <span class="p">|</span> sort <span class="p">|</span> uniq -c <span class="p">|</span> sort -nrk <span class="m">1</span> <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span>
+</code></pre></div><ul>
+<li>uniq -cでそれぞれの数が出せるので、それをsort。</li>
+<li>sortしただけだと、数値、テキストが出力されるので、awkで2列目だけを出力。</li>
+</ul>
+<h3 id="感想">感想</h3>
+<ul>
+<li>
+<p>『UNIXという考え方』という本を昔読んだけれど、UNIXコマンドにはそのUNIX哲学が強く現れていると思う。パイプを使って、それぞれのコマンドをつなぎ合わせることによって、非常に強力な処理が可能となる。大昔に作られたものが現代でもこれほど便利に使えるというのはやはり凄いことだ。今回改めてそう感じた。</p>
+</li>
+<li>
+<p>もっと良いやり方があったらコメントで教えてください。</p>
+</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>自然言語処理100本ノック第1章を解く</title>
@@ -16,110 +108,112 @@
 			
 			<guid>https://takumi34.github.io/posts/nlp100-chapter1/</guid>
 			<description>自然言語処理100本ノック2020が公開されたので、解いてみた。 2015年のバージョンは昔少しだけ解いたことがあったが、全部やってたわけでは</description>
-			<content type="html"><![CDATA[
-
-<ul>
+			<content type="html"><![CDATA[<ul>
 <li><a href="https://nlp100.github.io/ja/">自然言語処理100本ノック2020</a>が公開されたので、解いてみた。</li>
 <li>2015年のバージョンは昔少しだけ解いたことがあったが、全部やってたわけではないので、これからやっていきたいと思う。</li>
 </ul>
-
 <h3 id="実施した内容">実施した内容</h3>
-
 <ul>
-<li><p><a href="https://github.com/takumi34/nlp_100">コードはここに置いてある</a></p>
-
-<h4 id="00">00</h4></li>
-
-<li><p>コード</p>
-<div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="k">print</span><span class="p">(</span><span class="s1">&#39;stressed&#39;</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></code></pre></div></li>
-
-<li><p>出力</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">desserts</code></pre></div>
-<h4 id="01">01</h4></li>
-
-<li><p>コード</p>
+<li><a href="https://github.com/takumi34/nlp_100">コードはここに置いてある</a></li>
+</ul>
+<h4 id="00">00</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="k">print</span><span class="p">(</span><span class="s1">&#39;stressed&#39;</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div><ul>
+<li>出力</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">desserts
+</code></pre></div><h4 id="01">01</h4>
+<ul>
+<li>コード</li>
+</ul>
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;パタトクカシーー&#39;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span></code></pre></div></li>
-
-<li><p>出力</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">パトカー</code></pre></div>
-<h4 id="02">02</h4></li>
-
-<li><p>コード</p>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+</code></pre></div><ul>
+<li>出力</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">パトカー
+</code></pre></div><h4 id="02">02</h4>
+<ul>
+<li>コード</li>
+</ul>
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;パトカー&#39;</span>
 <span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;タクシー&#39;</span>
 <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-<span class="n">c</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></code></pre></div></li>
+    <span class="n">c</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 
-<li><p>出力</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">パタトクカシーー</code></pre></div></li>
+
+</code></pre></div><ul>
+<li>出力</li>
 </ul>
-
-<h4 id="03">03</h4>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">パタトクカシーー
+</code></pre></div><h4 id="03">03</h4>
 <ul>
-<li><p>コード</p>
+<li>コード</li>
+</ul>
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics.&#39;</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)):</span>
-<span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span></code></pre></div></li>
-
-<li><p>出力</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span><span class="m">3</span>, <span class="m">1</span>, <span class="m">4</span>, <span class="m">1</span>, <span class="m">5</span>, <span class="m">9</span>, <span class="m">2</span>, <span class="m">6</span>, <span class="m">5</span>, <span class="m">3</span>, <span class="m">5</span>, <span class="m">8</span>, <span class="m">9</span>, <span class="m">7</span>, <span class="m">9</span><span class="o">]</span></code></pre></div></li>
+    <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</code></pre></div><ul>
+<li>出力</li>
 </ul>
-
-<h4 id="04">04</h4>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9<span class="o">]</span>
+</code></pre></div><h4 id="04">04</h4>
 <ul>
-<li><p>コード</p>
+<li>コード</li>
+</ul>
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can.&#39;</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)):</span>
-<span class="k">if</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">19</span><span class="p">]:</span>
-    <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="p">))</span></code></pre></div></li>
-
-<li><p>出力</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span><span class="s1">&#39;H&#39;</span>: <span class="m">1</span>, <span class="s1">&#39;He&#39;</span>: <span class="m">2</span>, <span class="s1">&#39;Li&#39;</span>: <span class="m">3</span>, <span class="s1">&#39;Be&#39;</span>: <span class="m">4</span>, <span class="s1">&#39;B&#39;</span>: <span class="m">5</span>, <span class="s1">&#39;C&#39;</span>: <span class="m">6</span>, <span class="s1">&#39;N&#39;</span>: <span class="m">7</span>, <span class="s1">&#39;O&#39;</span>: <span class="m">8</span>, <span class="s1">&#39;F&#39;</span>: <span class="m">9</span>, <span class="s1">&#39;Ne&#39;</span>: <span class="m">10</span>, <span class="s1">&#39;Na&#39;</span>: <span class="m">11</span>, <span class="s1">&#39;Mi&#39;</span>: <span class="m">12</span>, <span class="s1">&#39;Al&#39;</span>: <span class="m">13</span>, <span class="s1">&#39;Si&#39;</span>: <span class="m">14</span>, <span class="s1">&#39;P&#39;</span>: <span class="m">15</span>, <span class="s1">&#39;S&#39;</span>: <span class="m">16</span>, <span class="s1">&#39;Cl&#39;</span>: <span class="m">17</span>, <span class="s1">&#39;Ar&#39;</span>: <span class="m">18</span>, <span class="s1">&#39;K&#39;</span>: <span class="m">19</span>, <span class="s1">&#39;Ca&#39;</span>: <span class="m">20</span><span class="o">}</span></code></pre></div></li>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">19</span><span class="p">]:</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+</code></pre></div><ul>
+<li>出力</li>
 </ul>
-
-<h4 id="05">05</h4>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span><span class="s1">&#39;H&#39;</span>: 1, <span class="s1">&#39;He&#39;</span>: 2, <span class="s1">&#39;Li&#39;</span>: 3, <span class="s1">&#39;Be&#39;</span>: 4, <span class="s1">&#39;B&#39;</span>: 5, <span class="s1">&#39;C&#39;</span>: 6, <span class="s1">&#39;N&#39;</span>: 7, <span class="s1">&#39;O&#39;</span>: 8, <span class="s1">&#39;F&#39;</span>: 9, <span class="s1">&#39;Ne&#39;</span>: 10, <span class="s1">&#39;Na&#39;</span>: 11, <span class="s1">&#39;Mi&#39;</span>: 12, <span class="s1">&#39;Al&#39;</span>: 13, <span class="s1">&#39;Si&#39;</span>: 14, <span class="s1">&#39;P&#39;</span>: 15, <span class="s1">&#39;S&#39;</span>: 16, <span class="s1">&#39;Cl&#39;</span>: 17, <span class="s1">&#39;Ar&#39;</span>: 18, <span class="s1">&#39;K&#39;</span>: 19, <span class="s1">&#39;Ca&#39;</span>: 20<span class="o">}</span>
+</code></pre></div><h4 id="05">05</h4>
 <ul>
-<li><p>コード</p>
+<li>コード</li>
+</ul>
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">ngram</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-<span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">tsize</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tsize</span> <span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">n</span><span class="p">])</span>
-<span class="k">return</span> <span class="nb">list</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">tsize</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tsize</span> <span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">n</span><span class="p">])</span>
+    <span class="k">return</span> <span class="nb">list</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;I am an NLPer&#34;</span>
 <span class="k">print</span><span class="p">(</span><span class="n">ngram</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1">#文字bi-gram</span>
-<span class="k">print</span><span class="p">(</span><span class="n">ngram</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1">#単語bi-gram</span></code></pre></div></li>
-
-<li><p>出力</p>
+<span class="k">print</span><span class="p">(</span><span class="n">ngram</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1">#単語bi-gram</span>
+</code></pre></div><ul>
+<li>出力</li>
+</ul>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span><span class="s1">&#39;I &#39;</span>, <span class="s1">&#39; a&#39;</span>, <span class="s1">&#39;am&#39;</span>, <span class="s1">&#39;m &#39;</span>, <span class="s1">&#39; a&#39;</span>, <span class="s1">&#39;an&#39;</span>, <span class="s1">&#39;n &#39;</span>, <span class="s1">&#39; N&#39;</span>, <span class="s1">&#39;NL&#39;</span>, <span class="s1">&#39;LP&#39;</span>, <span class="s1">&#39;Pe&#39;</span>, <span class="s1">&#39;er&#39;</span><span class="o">]</span>
-<span class="o">[[</span><span class="s1">&#39;I&#39;</span>, <span class="s1">&#39;am&#39;</span><span class="o">]</span>, <span class="o">[</span><span class="s1">&#39;am&#39;</span>, <span class="s1">&#39;an&#39;</span><span class="o">]</span>, <span class="o">[</span><span class="s1">&#39;an&#39;</span>, <span class="s1">&#39;NLPer&#39;</span><span class="o">]]</span></code></pre></div>
-<h4 id="06">06</h4></li>
-
-<li><p>コード</p>
+<span class="o">[[</span><span class="s1">&#39;I&#39;</span>, <span class="s1">&#39;am&#39;</span><span class="o">]</span>, <span class="o">[</span><span class="s1">&#39;am&#39;</span>, <span class="s1">&#39;an&#39;</span><span class="o">]</span>, <span class="o">[</span><span class="s1">&#39;an&#39;</span>, <span class="s1">&#39;NLPer&#39;</span><span class="o">]]</span>
+</code></pre></div><h4 id="06">06</h4>
+<ul>
+<li>コード</li>
+</ul>
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">ngram</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-<span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">tsize</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tsize</span> <span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">n</span><span class="p">])</span>
-<span class="k">return</span> <span class="nb">list</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">tsize</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tsize</span> <span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">n</span><span class="p">])</span>
+    <span class="k">return</span> <span class="nb">list</span>
 
 
 <span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;paraparaparadise&#34;</span>
@@ -131,79 +225,76 @@
 <span class="k">print</span><span class="p">(</span><span class="n">abi</span> <span class="o">|</span> <span class="n">bbi</span><span class="p">)</span>  <span class="c1">#和集合</span>
 <span class="k">print</span><span class="p">(</span><span class="n">abi</span> <span class="o">&amp;</span> <span class="n">bbi</span><span class="p">)</span>  <span class="c1">#積集合</span>
 <span class="k">print</span><span class="p">(</span><span class="n">abi</span> <span class="o">-</span> <span class="n">bbi</span><span class="p">)</span>  <span class="c1">#差集合</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;ok&#34;</span> <span class="k">if</span> <span class="s2">&#34;se&#34;</span> <span class="ow">in</span> <span class="p">(</span><span class="n">abi</span> <span class="ow">or</span> <span class="n">bbi</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&#34;no&#34;</span><span class="p">)</span></code></pre></div></li>
-
-<li><p>出力</p>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;ok&#34;</span> <span class="k">if</span> <span class="s2">&#34;se&#34;</span> <span class="ow">in</span> <span class="p">(</span><span class="n">abi</span> <span class="ow">or</span> <span class="n">bbi</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&#34;no&#34;</span><span class="p">)</span>
+</code></pre></div><ul>
+<li>出力</li>
+</ul>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span><span class="s1">&#39;ap&#39;</span>, <span class="s1">&#39;ag&#39;</span>, <span class="s1">&#39;ad&#39;</span>, <span class="s1">&#39;gr&#39;</span>, <span class="s1">&#39;ar&#39;</span>, <span class="s1">&#39;se&#39;</span>, <span class="s1">&#39;ph&#39;</span>, <span class="s1">&#39;ra&#39;</span>, <span class="s1">&#39;di&#39;</span>, <span class="s1">&#39;pa&#39;</span>, <span class="s1">&#39;is&#39;</span><span class="o">}</span>
 <span class="o">{</span><span class="s1">&#39;pa&#39;</span>, <span class="s1">&#39;ap&#39;</span>, <span class="s1">&#39;ra&#39;</span>, <span class="s1">&#39;ar&#39;</span><span class="o">}</span>
 <span class="o">{</span><span class="s1">&#39;di&#39;</span>, <span class="s1">&#39;is&#39;</span>, <span class="s1">&#39;ad&#39;</span>, <span class="s1">&#39;se&#39;</span><span class="o">}</span>
-ok</code></pre></div></li>
-</ul>
-
-<h4 id="07">07</h4>
-
+ok
+</code></pre></div><h4 id="07">07</h4>
 <ul>
-<li><p>コード</p>
+<li>コード</li>
+</ul>
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">temp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
-<span class="k">return</span> <span class="s2">&#34;</span><span class="si">%s</span><span class="s2">時の</span><span class="si">%s</span><span class="s2">は</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">&#34;</span><span class="si">%s</span><span class="s2">時の</span><span class="si">%s</span><span class="s2">は</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">temp</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="s2">&#34;気温&#34;</span><span class="p">,</span> <span class="mf">22.4</span><span class="p">))</span></code></pre></div></li>
+<span class="k">print</span><span class="p">(</span><span class="n">temp</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="s2">&#34;気温&#34;</span><span class="p">,</span> <span class="mf">22.4</span><span class="p">))</span>
 
-<li><p>出力</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">12時の気温は22.4</code></pre></div></li>
+</code></pre></div><ul>
+<li>出力</li>
 </ul>
-
-<h4 id="08">08</h4>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">12時の気温は22.4
+</code></pre></div><h4 id="08">08</h4>
 <ul>
-<li><p>コード</p>
+<li>コード</li>
+</ul>
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">cipher</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-<span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">islower</span><span class="p">()):</span>
-        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mi">219</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">islower</span><span class="p">()):</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mi">219</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
 
 <span class="n">text</span> <span class="o">=</span> <span class="s2">&#34;chika chika&#34;</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></code></pre></div></li>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 
-<li><p>出力</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">xsrpz xsrpz
-chika chika</code></pre></div></li>
+</code></pre></div><ul>
+<li>出力</li>
 </ul>
-
-<h4 id="09">09</h4>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">xsrpz xsrpz
+chika chika
+</code></pre></div><h4 id="09">09</h4>
 <ul>
-<li><p>コード</p>
+<li>コード</li>
+</ul>
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">random</span>
 
 
 <span class="k">def</span> <span class="nf">typogly</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-<span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">s</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span> <span class="o">+</span> <span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
-    <span class="k">return</span> <span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">s</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span> <span class="o">+</span> <span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
 
 <span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;I couldn’t believe that I could actually understand what I was reading : the phenomenal power of the human mind .&#34;</span>
 
 <span class="n">res</span> <span class="o">=</span> <span class="s2">&#34; &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">typogly</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">split</span><span class="p">()])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></code></pre></div></li>
-
-<li><p>出力</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">I cdlun’ot bivelee that I colud atlucaly uasrenndtd what I was reidang : the peahnemonl poewr of the haumn mind .</code></pre></div></li>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</code></pre></div><ul>
+<li>出力</li>
 </ul>
-
-<h3 id="感想">感想</h3>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">I cdlun’ot bivelee that I colud atlucaly uasrenndtd what I was reidang : the peahnemonl poewr of the haumn mind .
+</code></pre></div><h3 id="感想">感想</h3>
 <ul>
 <li>久々にPythonを書くと、色々と気付きが多かった。あと、やはり動的型付け言語はつらいものがあるので、出来れば書きたくないなと笑。</li>
 <li>Python的な内包表記は極力書かないようにした。キレイに書けそうだなというときは使ったけれど、基本的には普通に書いた方が読みやすいと思っているので。</li>
@@ -219,10 +310,7 @@ chika chika</code></pre></div></li>
 			
 			<guid>https://takumi34.github.io/posts/jmooc-os/</guid>
 			<description>JMOOCとは 流行りのMOOCの日本版。 修了証 受けたコース 「オペレーティングシステム2020」を受けた。 内容としては、OSの知識を俯瞰するよ</description>
-			<content type="html"><![CDATA[
-
-<h2 id="jmoocとは">JMOOCとは</h2>
-
+			<content type="html"><![CDATA[<h2 id="jmoocとは">JMOOCとは</h2>
 <ul>
 <li>流行りのMOOCの日本版。
 <figure class="center">
@@ -232,22 +320,16 @@ chika chika</code></pre></div></li>
 </figure>
 </li>
 </ul>
-
 <h2 id="受けたコース">受けたコース</h2>
-
 <ul>
 <li>「オペレーティングシステム2020」を受けた。</li>
 <li>内容としては、OSの知識を俯瞰するような感じで、メモリ管理やプロセス、ファイルシステムなど基本を押さえた内容だった。</li>
 </ul>
-
 <h2 id="受けた理由">受けた理由</h2>
-
 <ul>
 <li>最近Linuxカーネルのソースコードを読んでいるけれど、よく分からない単語や知らない仕組みがあり、やっぱり難しい。そういう意味で、OSの基礎を再度固めたかったから。</li>
 </ul>
-
 <h2 id="感想">感想</h2>
-
 <ul>
 <li>事前にOSの教科書を読んだり、OS自作の本も読んでいたので、特に問題なく受講できた。</li>
 <li>全て映像授業なのかと思っていたが、ほとんどはPDFの資料であった。そのレジュメには誤字があったりもしたが、内容の質は良かったと思う。</li>
@@ -262,20 +344,16 @@ chika chika</code></pre></div></li>
 			
 			<guid>https://takumi34.github.io/posts/gcp-coursera/</guid>
 			<description>とりあえず修了したのは以下 Google Cloud Platform Fundamentals: Core Infrastructure 日本語版 Essential Cloud Infrastructure: Foundation 日本語版 Architecting with Google Kubernetes Engine: Foundations 日本語版 Courseraとは オンラインで色々な授業が受けられるサー</description>
-			<content type="html"><![CDATA[
-
-<ul>
+			<content type="html"><![CDATA[<ul>
 <li>とりあえず修了したのは以下
-
 <ul>
 <li>Google Cloud Platform Fundamentals: Core Infrastructure 日本語版</li>
 <li>Essential Cloud Infrastructure: Foundation 日本語版</li>
 <li>Architecting with Google Kubernetes Engine: Foundations 日本語版</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="courseraとは">Courseraとは</h2>
-
 <ul>
 <li>オンラインで色々な授業が受けられるサービス。有名なので知ってる人も多いはず。</li>
 <li>ただやる気がないと全然続かないのでそこが一番難しいと思う。かく言う私も昔受けてみたものの途中で挫折したことがある。</li>
@@ -287,29 +365,21 @@ chika chika</code></pre></div></li>
 </figure>
 </li>
 </ul>
-
 <h2 id="受けた理由">受けた理由</h2>
-
 <ul>
 <li>多分GCPを勉強するにはCourseraを受けるのが現時点では一番良い方法なのではないだろうか。Googleが公式に提供しているものなので講座の内容も信頼できるし、Qwiklabsをやることによって実際にGCPを動かすこともできるので至れり尽くせりだと言える。</li>
 </ul>
-
 <h2 id="内容">内容</h2>
-
 <ul>
 <li>講義の動画を見る→問題を解く→Qwiklabsで実際にGCPを触わる、ということの繰り返し。</li>
 </ul>
-
 <h2 id="感想">感想</h2>
-
 <ul>
 <li>同じことの繰り返しで途中で飽きるので、気を強く持つのが大事。</li>
 <li>Qwiklabsのシステムは素晴らしいのだが、途中にあるテストに落ちたときに何が原因で落ちたのかがわからないので、そこを改善してほしい。</li>
 <li>今回受けた講座は日本語版のものなのだが、やはり翻訳があまり良くない部分が多い。なので結局英語で聞いて読んでいた。</li>
 </ul>
-
 <h1 id="今後">今後</h1>
-
 <ul>
 <li>GCPの講座は他にもたくさんあるので、暇なときにまた受けようと思う。</li>
 </ul>
@@ -322,39 +392,29 @@ chika chika</code></pre></div></li>
 			<pubDate>Fri, 22 Nov 2019 04:40:32 +0900</pubDate>
 			
 			<guid>https://takumi34.github.io/posts/line-dev-day-2019/</guid>
-			<description>Line Dev Day とは LINE DEV DAY会場 正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は 11&amp;frasl;21-11&amp;frasl;22 にお台場で開催された。私は今回両日</description>
-			<content type="html"><![CDATA[
-
-<h2 id="line-dev-day-とはhahahugoshortcode-s0-hbhb">Line Dev Day とは<figure class="center">
+			<description>Line Dev Day とは LINE DEV DAY会場 正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は 11/21-11/22 にお台場で開催された。私は今回両日</description>
+			<content type="html"><![CDATA[<h2 id="line-dev-day-とはhahahugoshortcode-s0-hbhb">Line Dev Day とは<figure class="center">
     <img src="/images/line-dev-day.jpg" width="320" height="640"/> <figcaption>
             <h4>LINE DEV DAY会場</h4>
         </figcaption>
 </figure>
 </h2>
-
 <ul>
-<li>正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は <sup>11</sup>&frasl;<sub>21</sub>-<sup>11</sup>&frasl;<sub>22</sub> にお台場で開催された。私は今回両日ともに参加した。私は以前LINEにエンジニアインターンに参加していたということもあってLine Dev Dayに参加したいと思っていた。</li>
+<li>正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は 11/21-11/22 にお台場で開催された。私は今回両日ともに参加した。私は以前LINEにエンジニアインターンに参加していたということもあってLine Dev Dayに参加したいと思っていた。</li>
 </ul>
-
 <h2 id="まず驚いたこと">まず驚いたこと</h2>
-
 <ul>
 <li>受付では顔認証による参加者確認が行われていた。私は LINE アプリによる確認を行うレーンに並んで板が、やはり顔認証確認の方が受付のスピードが早かったように感じた。精度も良いのではないだろうか。</li>
 </ul>
-
 <h2 id="カンファレンスの内容について">カンファレンスの内容について</h2>
-
 <ul>
 <li>発表は、キーノート、セッション、ブース、ポスター発表、各種ハンズオンという構成になっている。</li>
 <li>両日とも午前中はキーノート、午後にセッションなどがある。セッションには各業界の有名人を招待しているようだった。例えば、甘利さんや徳丸さんが招待されていた。</li>
 <li>今回、二日間で私は一回２時間のハンズオンを２つ受けたのでセッションはあまり聞けなかった。</li>
 <li>以下で私が聞いて面白かったと思うセッションやハンズオンについて紹介したいと思う。</li>
 </ul>
-
 <h2 id="ハンズオン">ハンズオン</h2>
-
 <h3 id="learning-session-について">Learning Session について</h3>
-
 <ul>
 <li>一日目には「仕事をよりクリエイティブにするための『Learning Session』の実践」というハンズオンを受けた。</li>
 <li>Learning Session とは LINE 社内で行っているモブプロの手法を使った勉強会のことを言うらしい。私は普段からペアプロやモブプロを行っており、自分としても好きな XP の手法なので参加した。Learning Session については下記のブログに纏められているので気になった方は読むといいだろう。(<a href="https://engineering.linecorp.com/ja/blog/recommend-learning-session/">仕事をよりクリエイティブにするための「Learning Session」ノススメ
@@ -363,29 +423,26 @@ chika chika</code></pre></div></li>
 <li>それから１時間半ほどモブプロを行って、結果的には環境構築が終わって hello world が成功したところで終わってしまった。ダウンロードなどにどうしても時間が掛かってしまうので、その間は Dart や flutter のチュートリアルを眺めたり、他のフレームワーク（React や Xamarin など）の違いなどを調べていた。</li>
 <li>ハンズオンの講師の方に「モブプログラミング・ベストプラクティス」を読んで実際にモブプロをしているという話をすると、モブプロ創始者の一人である Chris Lucian さんの論文を読むと良いと教えて頂いたので今度読もうと思う。</li>
 </ul>
-
 <h3 id="armeria-について">Armeria について</h3>
-
 <ul>
 <li>二日目には「Armeria と WebFlux でマイクロサービスを強化」のハンズオンを受けた。</li>
 <li>Armeria とは LINE の OSS で非同期 RPC/API のためのライブラリーだ(<a href="https://github.com/line/armeria">https://github.com/line/armeria</a>)</li>
 <li>LINE DEV DEY でも Armeria に関するセッションが複数行われており、Slack でも採用されているようだ。</li>
 <li>ハンズオンの内容としては、実際に Spring Boot のプロジェクトに Armeria を組み込んで使ってみるという内容だった。(<a href="https://github.com/joonhaeng/line-devday-2019-hands-on-src">その際のデモコードのリポジトリ</a>)</li>
 <li>Armeriaのstarterが用意されているので比較的簡単に SpringのDIに組み込めるという印象だ。</li>
-
-<li><p>Springのecosystemと共存する形でArmeriaを使ってgRPCやThriftをよしなに非同期にできるというのがメリットのようだ。Armeriaはh2cもデフォルトでサポートしているらしい。</p>
+<li>Springのecosystemと共存する形でArmeriaを使ってgRPCやThriftをよしなに非同期にできるというのがメリットのようだ。Armeriaはh2cもデフォルトでサポートしているらしい。</li>
+</ul>
 <div class="highlight"><pre class="chroma"><code class="language-groovy" data-lang="groovy"><span class="c1">// build.gradle
 </span><span class="c1"></span><span class="n">dependencies</span> <span class="o">{</span>
-<span class="n">implementation</span> <span class="s1">&#39;com.linecorp.armeria:armeria-spring-boot-webflux-starter&#39;</span>
+    <span class="n">implementation</span> <span class="s1">&#39;com.linecorp.armeria:armeria-spring-boot-webflux-starter&#39;</span>
 <span class="o">}</span>
 
 <span class="n">dependencyManagement</span> <span class="o">{</span>
 	<span class="n">imports</span> <span class="o">{</span>
 		<span class="n">mavenBom</span> <span class="s1">&#39;com.linecorp.armeria:armeria-bom:0.96.0&#39;</span>
 	<span class="o">}</span>
-<span class="o">}</span></code></pre></div></li>
-</ul>
-]]></content>
+<span class="o">}</span>
+</code></pre></div>]]></content>
 		</item>
 		
 		<item>
@@ -395,26 +452,22 @@ chika chika</code></pre></div></li>
 			
 			<guid>https://takumi34.github.io/posts/jsug_springone/</guid>
 			<description>JSUGとは日本Springユーザ会のことを指す。日本のSpringコミュニティである。私はそこで開かれたSpring One2019報告会で</description>
-			<content type="html"><![CDATA[
-
+			<content type="html"><![CDATA[<ul>
+<li>JSUGとは日本Springユーザ会のことを指す。日本のSpringコミュニティである。私はそこで開かれたSpring One2019報告会で発表した。</li>
+</ul>
+<h2 id="spring-oneとは">Spring Oneとは</h2>
 <ul>
-<li><p>JSUGとは日本Springユーザ会のことを指す。日本のSpringコミュニティである。私はそこで開かれたSpring One2019報告会で発表した。</p>
-
-<h2 id="spring-oneとは">Spring Oneとは</h2></li>
-
-<li><p>Spring OneとはPivotal社の主催する世界最大のSpringに関するカンファレンスだ。そこではSpring FrameworkなどSpringについて様々な発表が行われる。私は今回これに参加した。今年はアメリカのAustinで開催された。</p>
-
-<h2 id="jsugでの発表">JSUGでの発表</h2></li>
-
-<li><p>Spring OneではKotlinやAzure Spring Cloudなど様々なセッションを聞いた。特に印象に残ったセッションとしてSpring Initializrのセッションがあった( <a href="https://www.slideshare.net/Pivotal/creating-the-second-best-place-on-the-internet-with-spring-initializr/Pivotal/creating-the-second-best-place-on-the-internet-with-spring-initializr">Creating &ldquo;The Second Best Place on the Internet&rdquo; with Spring Initializr</a>)。この内容をもとにJSUGで発表をした。</p></li>
-
-<li><p>内容としては、Spring Initializrの発展の歴史とSpring Initlizrのカスタマイズの話である。</p></li>
-
-<li><p>デモコードは以下にある。READMEを読めば大体分かるはず。(<a href="https://github.com/takumi34/custom-spring-initializr">https://github.com/takumi34/custom-spring-initializr</a>)</p></li>
-
-<li><p>スライドは以下。</p></li>
-
-<li><p><iframe src="//www.slideshare.net/slideshow/embed_code/key/t4XKHDRMrhP0Uy" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/apkiban/spring-initializr" title="Spring Initializrをハックする-カスタマイズを通してその内部実装を覗く" target="_blank">Spring Initializrをハックする-カスタマイズを通してその内部実装を覗く</a> </strong> from <strong><a href="https://www.slideshare.net/apkiban" target="_blank">apkiban</a></strong> </div></p></li>
+<li>Spring OneとはPivotal社の主催する世界最大のSpringに関するカンファレンスだ。そこではSpring FrameworkなどSpringについて様々な発表が行われる。私は今回これに参加した。今年はアメリカのAustinで開催された。</li>
+</ul>
+<h2 id="jsugでの発表">JSUGでの発表</h2>
+<ul>
+<li>Spring OneではKotlinやAzure Spring Cloudなど様々なセッションを聞いた。特に印象に残ったセッションとしてSpring Initializrのセッションがあった( <a href="https://www.slideshare.net/Pivotal/creating-the-second-best-place-on-the-internet-with-spring-initializr/Pivotal/creating-the-second-best-place-on-the-internet-with-spring-initializr">Creating &ldquo;The Second Best Place on the Internet&rdquo; with Spring Initializr</a>)。この内容をもとにJSUGで発表をした。</li>
+<li>内容としては、Spring Initializrの発展の歴史とSpring Initlizrのカスタマイズの話である。</li>
+<li>デモコードは以下にある。READMEを読めば大体分かるはず。(<a href="https://github.com/takumi34/custom-spring-initializr">https://github.com/takumi34/custom-spring-initializr</a>)</li>
+<li>スライドは以下。</li>
+<li>
+<!-- raw HTML omitted -->
+</li>
 </ul>
 ]]></content>
 		</item>
@@ -426,26 +479,21 @@ chika chika</code></pre></div></li>
 			
 			<guid>https://takumi34.github.io/posts/gotunes10/</guid>
 			<description>Go Relese 10周年記念パーティに行ってきた 場所はメルカリで行われた。 Go Release 10 Year Anniversary Party in Tokyo Goの歴史やGoコミュニティーの歴史を振り返るようなセッション</description>
-			<content type="html"><![CDATA[
-
-<h1 id="go-relese-10周年記念パーティに行ってきた">Go Relese 10周年記念パーティに行ってきた</h1>
-
+			<content type="html"><![CDATA[<h1 id="go-relese-10周年記念パーティに行ってきた">Go Relese 10周年記念パーティに行ってきた</h1>
 <ul>
 <li>場所はメルカリで行われた。</li>
 <li><a href="https://gocon.connpass.com/event/153665/">Go Release 10 Year Anniversary Party in Tokyo</a></li>
 <li>Goの歴史やGoコミュニティーの歴史を振り返るようなセッションが多かった。</li>
 </ul>
-
 <h2 id="セッションの内容">セッションの内容</h2>
-
 <ul>
 <li>yoshiさんやtenntennさんの発表があった。</li>
 <li>特にyoshiさんの発表は面白かった。
-
 <ul>
 <li>内容としては、Goの歴史を振り返るもので、ALGOLから始まり、concurrencyの歴史、Goを作った人たちが出会ったときの話、Goのリリースの歴史など、知らないことが多かった。</li>
 <li>そのうちスライドの資料が公開されると思うので見ておくと良いと思う。</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 ]]></content>
 		</item>
@@ -457,10 +505,7 @@ chika chika</code></pre></div></li>
 			
 			<guid>https://takumi34.github.io/posts/test/</guid>
 			<description>test ブログ始めました</description>
-			<content type="html"><![CDATA[
-
-<h1 id="test">test</h1>
-
+			<content type="html"><![CDATA[<h1 id="test">test</h1>
 <h2 id="ブログ始めました">ブログ始めました</h2>
 ]]></content>
 		</item>

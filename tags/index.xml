@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on chika</title>
@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 30 Apr 2020 16:25:34 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2020 11:09:14 +0900</lastBuildDate>
     
 	<atom:link href="https://takumi34.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,18 @@
     <item>
       <title>NLP</title>
       <link>https://takumi34.github.io/tags/nlp/</link>
-      <pubDate>Thu, 30 Apr 2020 16:25:34 +0900</pubDate>
+      <pubDate>Fri, 01 May 2020 11:09:14 +0900</pubDate>
       
       <guid>https://takumi34.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UNIX</title>
+      <link>https://takumi34.github.io/tags/unix/</link>
+      <pubDate>Fri, 01 May 2020 11:09:14 +0900</pubDate>
+      
+      <guid>https://takumi34.github.io/tags/unix/</guid>
       <description></description>
     </item>
     
@@ -90,15 +99,6 @@
       <pubDate>Fri, 15 Nov 2019 03:43:42 +0900</pubDate>
       
       <guid>https://takumi34.github.io/tags/spring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Golang</title>
-      <link>https://takumi34.github.io/tags/golang/</link>
-      <pubDate>Tue, 12 Nov 2019 08:41:11 +0900</pubDate>
-      
-      <guid>https://takumi34.github.io/tags/golang/</guid>
       <description></description>
     </item>
     

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>chika</title>
@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 30 Apr 2020 16:25:34 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 08 Jun 2019 18:39:10 +0900</lastBuildDate>
     
 	<atom:link href="https://takumi34.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>自然言語処理100本ノック第2章を解く</title>
+      <link>https://takumi34.github.io/posts/nlp100-chapter2/</link>
+      <pubDate>Fri, 01 May 2020 11:09:14 +0900</pubDate>
+      
+      <guid>https://takumi34.github.io/posts/nlp100-chapter2/</guid>
+      <description>自然言語処理100本ノック2020を第1章に引き続き、第2章をやる。今回はUNIXコマンドでテキストの処理をするという章。 普段からgrepと</description>
+    </item>
     
     <item>
       <title>自然言語処理100本ノック第1章を解く</title>
@@ -45,7 +54,7 @@
       <pubDate>Fri, 22 Nov 2019 04:40:32 +0900</pubDate>
       
       <guid>https://takumi34.github.io/posts/line-dev-day-2019/</guid>
-      <description>Line Dev Day とは LINE DEV DAY会場 正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は 11&amp;frasl;21-11&amp;frasl;22 にお台場で開催された。私は今回両日</description>
+      <description>Line Dev Day とは LINE DEV DAY会場 正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は 11/21-11/22 にお台場で開催された。私は今回両日</description>
     </item>
     
     <item>
@@ -91,18 +100,6 @@
       
       <guid>https://takumi34.github.io/about-me/</guid>
       <description>EDUCATION KEIO UNIVERSITY,Tokyo 2015-2019 Bachelor of law in laws COMPUTER SKILLS 応用情報処理技術者 C, C++, Python3, Ruby, Java, Go, Swift Spring Boot, Ruby on Rails HTML, CSS, Vue.js AWS, Docker, k8s</description>
-    </item>
-    
-    <item>
-      <title>Projects</title>
-      <link>https://takumi34.github.io/projects/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://takumi34.github.io/projects/</guid>
-      <description> Portfolio Template  a terminal like portfolio
-template  Janken  you can play here
-janken  Levenshtein Distance(Elm)  you can calculate it here
-Levenshtein Distance  </description>
     </item>
     
   </channel>
