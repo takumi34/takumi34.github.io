@@ -73,7 +73,7 @@ cut -d <span class="s1">&#39; &#39;</span> -f <span class="m">2</span> popular-n
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">cut -f <span class="m">1</span> popular-names.txt <span class="p">|</span> sort <span class="p">|</span> uniq
 </code></pre></div><ul>
-<li>uniqをかける前にsortする。C++でやりなれた操作。（uniqsortを忘れがちなので、そのマクロを組んでいるぐらい笑。）</li>
+<li>uniqをかける前にsortする。C++でやりなれた操作。（uniqueする前にsortを忘れがちなので、そのマクロを組んでいるぐらい笑。）</li>
 </ul>
 <h4 id="18">18</h4>
 <ul>
