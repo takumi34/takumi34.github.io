@@ -41,7 +41,7 @@
 </ul>
 <h3 id="フォーマット">フォーマット</h3>
 <ul>
-<li>普EFIはFAT32で、rootはext4でフォーマット。</li>
+<li>EFIはFAT32で、rootはext4でフォーマット。</li>
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkfs.vfat -F32 /dev/nvme0n1
 mkfs.ext4 /dev/nvme0n2
@@ -149,19 +149,12 @@ set-default-source alsa_output.pci-0000_00_1f.3.hdmi-stereo.monitor
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pacman -S network-manager-applet xfce4-notifyd gnome-keyring
 </code></pre></div><h2 id="まとめ">まとめ</h2>
 <ul>
-<li>
-<p>環境構築メモとして、これを書き残しておく。</p>
-</li>
-<li>
-<p>今回、Arch Linuxの環境構築をして、デスクトップOSの仕組みについて詳しくなった（気がする）。</p>
-</li>
-<li>
-<p>Ubuntuを使っていたときはインストール時から様々な環境がすでに込み込みなので、特に何も考えずすぐ使えるのだけど、Arch Linuxは初めはほんとに何も入ってない。なので、自分で好きなものをどんどん入れていってカスタマイズしていくので、裏側でどういうものが動いているかというのがよく分かる。</p>
-</li>
-<li>
-<p>Arch Linux最高。という言葉で締めくくりたい。おすすめできるOSである。</p>
-</li>
+<li>環境構築メモとして、これを書き残しておく。</li>
+<li>今回、Arch Linuxの環境構築をして、デスクトップOSの仕組みについて詳しくなった（気がする）。</li>
+<li>Ubuntuを使っていたときはインストール時から様々な環境がすでに込み込みなので、特に何も考えずすぐ使えるのだけど、Arch Linuxは初めはほんとに何も入ってない。なので、自分で好きなものをどんどん入れていってカスタマイズしていくので、裏側でどういうものが動いているかというのがよく分かる。</li>
+<li>Arch wikiは凄い。ほんとに色々載っているので非常に助かる。</li>
 </ul>
+<p><em><strong>「Arch Linux最高。」という言葉で締めくくりたい。万人におすすめできるOSである。</strong></em></p>
 ]]></content>
 		</item>
 		
