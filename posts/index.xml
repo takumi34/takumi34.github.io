@@ -6,8 +6,154 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Fri, 01 May 2020 11:09:14 +0900</lastBuildDate>
+		<lastBuildDate>Mon, 04 May 2020 10:50:39 +0900</lastBuildDate>
 		<atom:link href="https://takumi34.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>メインマシンをArch Linuxに移行した話とその環境構築メモ</title>
+			<link>https://takumi34.github.io/posts/archlinux-memo/</link>
+			<pubDate>Mon, 04 May 2020 10:50:39 +0900</pubDate>
+			
+			<guid>https://takumi34.github.io/posts/archlinux-memo/</guid>
+			<description>メインマシンとしてUbuntuを愛用していたのだが、つい先日Ubuntu20.04がLTS版として出たので、バージョンを上げたところ、調子が</description>
+			<content type="html"><![CDATA[<ul>
+<li>メインマシンとしてUbuntuを愛用していたのだが、つい先日Ubuntu20.04がLTS版として出たので、バージョンを上げたところ、調子が悪くなった（networkmanagerが問題なのではないかと思うのだけど、原因不明。起動してしばらくするとネットに繋がらなくなるし、ターミナルからコマンドも実行できなくなる。再起動もできなくなるという感じ。）ので、これを機にArch Linuxへ乗り換えることにした。</li>
+</ul>
+<h2 id="arch-linuxとは">Arch Linuxとは</h2>
+<ul>
+<li>Simplicityを謳っているOSで、インストール時は本当に何も入っていないというぐらい何も入っていない。</li>
+<li>ローリングアップデートの方式なので、常にOSを最新の状態にできる。</li>
+</ul>
+<p>(今思えば、UbuntuはUSBを挿してインストールすればほぼ環境構築が終わったようなものだったのだなと思う。)</p>
+<h2 id="環境構築メモ">環境構築メモ</h2>
+<ul>
+<li>
+<p>基本的には<a href="https://wiki.archlinux.org/index.php/installation_guide">Arch wikiのInstallation guide</a>を読んでその通りにやった。</p>
+</li>
+<li>
+<p>大まかに重要そうなところ、つまずいたところを以下に記す。</p>
+</li>
+</ul>
+<h3 id="パーティション">パーティション</h3>
+<ul>
+<li>パーティションは/dev/nvme0n1と/dev/nvme0n2でそれぞれEFIとrootにした。</li>
+<li>gdiskでパーティションを切った。</li>
+</ul>
+<h3 id="フォーマット">フォーマット</h3>
+<ul>
+<li>普EFIはFAT32で、rootはext4でフォーマット。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkfs.vfat -F32 /dev/nvme0n1
+mkfs.ext4 /dev/nvme0n2
+</code></pre></div><h2 id="マウント">マウント</h2>
+<ul>
+<li>特になし</li>
+</ul>
+<h2 id="ベースシステムのインストール">ベースシステムのインストール</h2>
+<ul>
+<li>pacstarpでインストールできる。ここはarch wikiの通りにやった。まとめて他のも入れられるが、ここで入れすぎると何か起きたときに問題の切り分けができないので最小限に留めておくのがいいらしい。</li>
+<li>ここでLinuxカーネルやファームウェアなどをインストールする。</li>
+</ul>
+<h3 id="ブートローダ">ブートローダ</h3>
+<ul>
+<li>
+<p>GRUBを使った。</p>
+</li>
+<li>
+<p>UEFIのブートローダとしてはsystemd-bootとGRUBが有名どころだと思うけど、どっちの方がいいのかは正直分からない。</p>
+</li>
+<li>
+<p>GRUBの使い方もArchwikiを参照するとよい。</p>
+</li>
+<li>
+<p>この後は再起動してちゃんと動けば、インストール成功。</p>
+</li>
+<li>
+<p><a href="https://qiita.com/panakuma/items/471643138db11335d542">この記事も参考になった</a></p>
+</li>
+<li>
+<p>ただこの時点ではデスクトップ環境が入ってないので、それをこれから入れていく。</p>
+</li>
+</ul>
+<h3 id="デスクトップ">デスクトップ</h3>
+<ul>
+<li>xfceを使った。</li>
+<li>UbuntuのときはGNOMEを使っていたが、以前から気になっていたxfceにした。
+（本当はi3wmにしたいのだけど、操作が難しいので、一旦保留）</li>
+</ul>
+<h3 id="ディスプレイマネージャ">ディスプレイマネージャ</h3>
+<ul>
+<li>
+<p>lightdmにした。</p>
+</li>
+<li>
+<p><a href="https://qiita.com/Hayao0819/items/7784178c7fd568291905">テーマはこれを参考にした</a></p>
+</li>
+<li>
+<p><a href="https://wiki.archlinux.jp/index.php/LightDM#.E8.87.AA.E5.8B.95.E3.83.AD.E3.82.B0.E3.82.A4.E3.83.B3.E3.82.92.E6.9C.89.E5.8A.B9.E3.81.AB.E3.81.99.E3.82.8B">自動ログインの設定はこれ</a></p>
+</li>
+<li>
+<p>実はlightdmを入れたあとに再起動したら、&ldquo;can&rsquo;t find session&quot;のような文言が表示されてログインできないという事象が発生した。でも、これはただこの時点でxfceを入れ忘れていたから、デスクトップのセッションが見つからないというだけだった（これに気づかず時間を消費した&hellip;)</p>
+</li>
+</ul>
+<h3 id="その他の環境構築">その他の環境構築</h3>
+<h4 id="スピーカマイクの設定">スピーカ、マイクの設定</h4>
+<ul>
+<li>pulseaudioを入れた。</li>
+<li>これも<a href="https://wiki.archlinux.jp/index.php/PulseAudio">Archwiki</a>を見るといい。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">yay -S pulseaudio pavucontrol
+</code></pre></div><ul>
+<li>スピーカとしてディスプレイのスピーカが認識されていなかったのだけど、これもarchwikiを参考に設定した。</li>
+<li>/etc/pulse/default.paに設定を書いていく。</li>
+<li>set-default-sinkとset-default-sourceにモニターのスピーカ設定を書く。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">### Make some devices default</span>
+set-default-sink alsa_output.pci-0000_00_1f.3.hdmi-stereo
+<span class="c1">#set-default-source input</span>
+set-default-source alsa_output.pci-0000_00_1f.3.hdmi-stereo.monitor
+</code></pre></div><ul>
+<li>マイクも認識されていなかったので、<a href="https://wiki.archlinux.jp/index.php/PulseAudio/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0#.E3.83.9E.E3.82.A4.E3.82.AF.E3.81.8C_PulseAudio_.E3.81.8B.E3.82.89.E8.AA.8D.E8.AD.98.E3.81.95.E3.82.8C.E3.81.AA.E3.81.84">これまたArchwikiを参考に解決</a></li>
+</ul>
+<h4 id="ディスプレイ設定">ディスプレイ設定</h4>
+<ul>
+<li>映像を流すとディスプレイに線が入ったりしたので、refresh rateの設定の問題か？と思い、Xの設定やdisplay.xmlなどをいじったりしていたが、結局はドライバーを入れたら解決した。</li>
+<li>intelなのでこれ</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pacman -Ss xf86-video
+</code></pre></div><h4 id="日本語環境">日本語環境</h4>
+<ul>
+<li>fcitx-mozcを入れた。</li>
+<li>ログイン時に以下を流す。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">fcitx-autostart
+</code></pre></div><ul>
+<li>日本語のフォントも入れておく。</li>
+</ul>
+<h3 id="kindle-for-pcのインストール">kindle for PCのインストール</h3>
+<ul>
+<li>基本的にはArch User Repositoryを使えば、vscodeもchromeも大体簡単にインストールできるのだけど、kindleはそうは行かないので、wine経由で入れる。</li>
+<li>wine-5.7でwineの中のwindowsのバージョンをwindows8.1にして、kindleのkindle-for-pc-1-17-44170.exeを入れる。</li>
+<li>以上のバージョンを合わせないとうまくインストールができない。特に、kindleのインストーラーのバージョンを色々試した結果、1-17-44170ならうまく入った。</li>
+<li>Ubuntuでも同じことをやったのだけど、バージョンを忘れたので、何度も試すことになったので、これもメモしておく。</li>
+</ul>
+<h2 id="まとめ">まとめ</h2>
+<ul>
+<li>
+<p>環境構築メモとして、これを書き残しておく。</p>
+</li>
+<li>
+<p>今回、Arch Linuxの環境構築をして、デスクトップOSの仕組みについて詳しくなった（気がする）。</p>
+</li>
+<li>
+<p>Ubuntuを使っていたときはインストール時から様々な環境がすでに込み込みなので、特に何も考えずすぐ使えるのだけど、Arch Linuxは初めはほんとに何も入ってない。なので、自分で好きなものをどんどん入れていってカスタマイズしていくので、裏側でどういうものが動いているかというのがよく分かる。</p>
+</li>
+<li>
+<p>Arch Linux最高。という言葉で締めくくりたい。おすすめできるOSである。</p>
+</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>自然言語処理100本ノック第2章を解く</title>
