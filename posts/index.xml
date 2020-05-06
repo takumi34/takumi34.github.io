@@ -44,7 +44,7 @@
 <p>これは以後の課題でも使うので、以下のようにモジュールにしておく。</p>
 </li>
 </ul>
-<p>ch2_func.py</p>
+<p>ch3_func.py</p>
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">json</span>
 
 <span class="k">def</span> <span class="nf">extract_uk_text</span><span class="p">():</span>
@@ -57,11 +57,11 @@
 <ul>
 <li>コード</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">modules</span> <span class="kn">import</span> <span class="n">ch2_func</span>
+<div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">modules</span> <span class="kn">import</span> <span class="n">ch3_func</span>
 
 <span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">text</span> <span class="o">=</span> <span class="n">ch2_func</span><span class="o">.</span><span class="n">extract_uk_text</span><span class="p">()</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">ch3_func</span><span class="o">.</span><span class="n">extract_uk_text</span><span class="p">()</span>
 <span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;\[\[Category:.*?\]\]&#39;</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
 
@@ -87,11 +87,11 @@
 <ul>
 <li>コード</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">modules</span> <span class="kn">import</span> <span class="n">ch2_func</span>
+<div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">modules</span> <span class="kn">import</span> <span class="n">ch3_func</span>
 
 <span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">text</span> <span class="o">=</span> <span class="n">ch2_func</span><span class="o">.</span><span class="n">extract_uk_text</span><span class="p">()</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">ch3_func</span><span class="o">.</span><span class="n">extract_uk_text</span><span class="p">()</span>
 <span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;\[\[Category:(.*?)(?:\|.*)?\]\]&#39;</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
 
@@ -116,11 +116,11 @@ G8加盟国
 <ul>
 <li>コード</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">from modules import ch2_func
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">from modules import ch3_func
 
 import re
 
-<span class="nv">text</span> <span class="o">=</span> ch2_func.extract_uk_text<span class="o">()</span>
+<span class="nv">text</span> <span class="o">=</span> ch3_func.extract_uk_text<span class="o">()</span>
 <span class="nv">pattern</span> <span class="o">=</span> <span class="s1">&#39;(==+)(.*?)==+&#39;</span>
 <span class="nv">results</span> <span class="o">=</span> re.findall<span class="o">(</span>pattern, text<span class="o">)</span>
 
@@ -132,11 +132,11 @@ import re
 <ul>
 <li>コード</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">from modules import ch2_func
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">from modules import ch3_func
 
 import re
 
-<span class="nv">text</span> <span class="o">=</span> ch2_func.extract_uk_text<span class="o">()</span>
+<span class="nv">text</span> <span class="o">=</span> ch3_func.extract_uk_text<span class="o">()</span>
 <span class="nv">pattern</span> <span class="o">=</span> <span class="s1">&#39;\[\[ファイル:(.*?)(?:\|.*)?\]\]&#39;</span>
 <span class="nv">results</span> <span class="o">=</span> re.findall<span class="o">(</span>pattern,text<span class="o">)</span>
 
