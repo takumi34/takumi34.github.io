@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Regex on chika</title>
+    <link>https://takumi34.github.io/tags/regex/</link>
+    <description>Recent content in Regex on chika</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Wed, 06 May 2020 17:09:11 +0900</lastBuildDate>
+    
+	<atom:link href="https://takumi34.github.io/tags/regex/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>自然言語処理100本ノック第3章を解く（前編）</title>
+      <link>https://takumi34.github.io/posts/nlp100-chapter3/</link>
+      <pubDate>Wed, 06 May 2020 17:09:11 +0900</pubDate>
+      
+      <guid>https://takumi34.github.io/posts/nlp100-chapter3/</guid>
+      <description>自然言語処理100本ノック2020の第3章をやる。前編なので30か34まで。 今回は正規表現の回。 正規表現は便利なので簡単なのものはよく書くけ</description>
+    </item>
+    
+  </channel>
+</rss>

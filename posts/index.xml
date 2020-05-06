@@ -6,8 +6,152 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 04 May 2020 10:50:39 +0900</lastBuildDate>
+		<lastBuildDate>Wed, 06 May 2020 17:09:11 +0900</lastBuildDate>
 		<atom:link href="https://takumi34.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>自然言語処理100本ノック第3章を解く（前編）</title>
+			<link>https://takumi34.github.io/posts/nlp100-chapter3/</link>
+			<pubDate>Wed, 06 May 2020 17:09:11 +0900</pubDate>
+			
+			<guid>https://takumi34.github.io/posts/nlp100-chapter3/</guid>
+			<description>自然言語処理100本ノック2020の第3章をやる。前編なので30か34まで。 今回は正規表現の回。 正規表現は便利なので簡単なのものはよく書くけ</description>
+			<content type="html"><![CDATA[<ul>
+<li><a href="https://nlp100.github.io/ja/">自然言語処理100本ノック2020</a>の第3章をやる。前編なので30か34まで。</li>
+<li>今回は正規表現の回。</li>
+<li>正規表現は便利なので簡単なのものはよく書くけれど、やっぱり難しい。プログラム合成で正規表現を合成してほしい。</li>
+</ul>
+<h3 id="実施した内容">実施した内容</h3>
+<ul>
+<li><a href="https://github.com/takumi34/nlp_100">コードはここに置いてある</a></li>
+</ul>
+<h4 id="30">30</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;jawiki-country.json&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">article</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;イギリス&#39;</span> <span class="o">==</span> <span class="n">article</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">article</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
+</code></pre></div><ul>
+<li>
+<p>openした後にcloseするのをよく忘れる人はwithを使うようにって大学のときに聞いた気がする。</p>
+</li>
+<li>
+<p>これは以後の課題でも使うので、以下のようにモジュールにしておく。</p>
+</li>
+</ul>
+<p>ch2_func.py</p>
+<div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">def</span> <span class="nf">extract_uk_text</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;jawiki-country.json&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">article</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s1">&#39;イギリス&#39;</span> <span class="o">==</span> <span class="n">article</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="n">article</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span>
+</code></pre></div><h4 id="31">31</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">modules</span> <span class="kn">import</span> <span class="n">ch2_func</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="n">ch2_func</span><span class="o">.</span><span class="n">extract_uk_text</span><span class="p">()</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;\[\[Category:.*?\]\]&#39;</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div><ul>
+<li>出力</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[[</span>Category:イギリス<span class="p">|</span>*<span class="o">]]</span>
+<span class="o">[[</span>Category:イギリス連邦加盟国<span class="o">]]</span>
+<span class="o">[[</span>Category:英連邦王国<span class="p">|</span>*<span class="o">]]</span>
+<span class="o">[[</span>Category:G8加盟国<span class="o">]]</span>
+<span class="o">[[</span>Category:欧州連合加盟国<span class="p">|</span>元<span class="o">]]</span>
+<span class="o">[[</span>Category:海洋国家<span class="o">]]</span>
+<span class="o">[[</span>Category:現存する君主国<span class="o">]]</span>
+<span class="o">[[</span>Category:島国<span class="o">]]</span>
+<span class="o">[[</span>Category:1801年に成立した国家・領域<span class="o">]]</span>
+</code></pre></div><ul>
+<li>正規表現登場。</li>
+<li>findallは便利だ。</li>
+</ul>
+<h4 id="32">32</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">modules</span> <span class="kn">import</span> <span class="n">ch2_func</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="n">ch2_func</span><span class="o">.</span><span class="n">extract_uk_text</span><span class="p">()</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;\[\[Category:(.*?)(?:\|.*)?\]\]&#39;</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div><ul>
+<li>出力</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">イギリス
+イギリス連邦加盟国
+英連邦王国
+G8加盟国
+欧州連合加盟国
+海洋国家
+現存する君主国
+島国
+1801年に成立した国家・領域
+</code></pre></div><ul>
+<li>&lsquo;|*&lsquo;みたいなのが付いているのを正規表現の&rsquo;?:&lsquo;で外した。</li>
+</ul>
+<h4 id="33">33</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">from modules import ch2_func
+
+import re
+
+<span class="nv">text</span> <span class="o">=</span> ch2_func.extract_uk_text<span class="o">()</span>
+<span class="nv">pattern</span> <span class="o">=</span> <span class="s1">&#39;(==+)(.*?)==+&#39;</span>
+<span class="nv">results</span> <span class="o">=</span> re.findall<span class="o">(</span>pattern, text<span class="o">)</span>
+
+<span class="k">for</span> i in results:
+    <span class="nv">level</span> <span class="o">=</span> i<span class="o">[</span>0<span class="o">]</span>.count<span class="o">(</span><span class="s1">&#39;=&#39;</span><span class="o">)</span> - <span class="m">1</span>
+    <span class="nv">section_name</span> <span class="o">=</span> i<span class="o">[</span>1<span class="o">]</span>
+    print<span class="o">(</span><span class="s1">&#39;%d: %s&#39;</span> % <span class="o">(</span>level, section_name<span class="o">))</span>
+</code></pre></div><h4 id="34">34</h4>
+<ul>
+<li>コード</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">from modules import ch2_func
+
+import re
+
+<span class="nv">text</span> <span class="o">=</span> ch2_func.extract_uk_text<span class="o">()</span>
+<span class="nv">pattern</span> <span class="o">=</span> <span class="s1">&#39;\[\[ファイル:(.*?)(?:\|.*)?\]\]&#39;</span>
+<span class="nv">results</span> <span class="o">=</span> re.findall<span class="o">(</span>pattern,text<span class="o">)</span>
+
+<span class="k">for</span> i in results:
+  print<span class="o">(</span>i<span class="o">)</span>
+</code></pre></div><ul>
+<li>32とやってることは同じ</li>
+</ul>
+<h2 id="感想">感想</h2>
+<ul>
+<li>正規表現は正直難しい。今のところはそこまで複雑じゃないが、複雑になればなるほど人間には解読不能になると思っている&hellip;</li>
+<li>まだ『詳説　正規表現』を読んだことがないので、これを機会に読みたいと思う。</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>メインマシンをArch Linuxに移行した話とその環境構築メモ</title>

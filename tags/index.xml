@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 04 May 2020 10:50:39 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 06 May 2020 17:09:11 +0900</lastBuildDate>
     
 	<atom:link href="https://takumi34.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>NLP</title>
+      <link>https://takumi34.github.io/tags/nlp/</link>
+      <pubDate>Wed, 06 May 2020 17:09:11 +0900</pubDate>
+      
+      <guid>https://takumi34.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regex</title>
+      <link>https://takumi34.github.io/tags/regex/</link>
+      <pubDate>Wed, 06 May 2020 17:09:11 +0900</pubDate>
+      
+      <guid>https://takumi34.github.io/tags/regex/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Arch Linux</title>
@@ -27,15 +45,6 @@
       <pubDate>Mon, 04 May 2020 10:50:39 +0900</pubDate>
       
       <guid>https://takumi34.github.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>NLP</title>
-      <link>https://takumi34.github.io/tags/nlp/</link>
-      <pubDate>Fri, 01 May 2020 11:09:14 +0900</pubDate>
-      
-      <guid>https://takumi34.github.io/tags/nlp/</guid>
       <description></description>
     </item>
     
@@ -90,15 +99,6 @@
       <pubDate>Fri, 22 Nov 2019 04:40:32 +0900</pubDate>
       
       <guid>https://takumi34.github.io/tags/line/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tech-conference</title>
-      <link>https://takumi34.github.io/tags/tech-conference/</link>
-      <pubDate>Fri, 22 Nov 2019 04:40:32 +0900</pubDate>
-      
-      <guid>https://takumi34.github.io/tags/tech-conference/</guid>
       <description></description>
     </item>
     
