@@ -819,19 +819,19 @@ chika chika
 			<pubDate>Fri, 15 Nov 2019 03:43:42 +0900</pubDate>
 			
 			<guid>https://takumi34.github.io/posts/jsug_springone/</guid>
-			<description>JSUGとは日本Springユーザ会のことを指す。日本のSpringコミュニティである。私はそこで開かれたSpring One2019報告会で</description>
+			<description>JSUG とは日本 Spring ユーザ会のことを指す。日本の Spring コミュニティである。私はそこで開かれた Spring One2019 報告会で発表した。 Spring One とは Spring One とは Pivotal 社の主催する世界最大</description>
 			<content type="html"><![CDATA[<ul>
-<li>JSUGとは日本Springユーザ会のことを指す。日本のSpringコミュニティである。私はそこで開かれたSpring One2019報告会で発表した。</li>
+<li>JSUG とは日本 Spring ユーザ会のことを指す。日本の Spring コミュニティである。私はそこで開かれた Spring One2019 報告会で発表した。</li>
 </ul>
-<h2 id="spring-oneとは">Spring Oneとは</h2>
+<h2 id="spring-one-とは">Spring One とは</h2>
 <ul>
-<li>Spring OneとはPivotal社の主催する世界最大のSpringに関するカンファレンスだ。そこではSpring FrameworkなどSpringについて様々な発表が行われる。私は今回これに参加した。今年はアメリカのAustinで開催された。</li>
+<li>Spring One とは Pivotal 社の主催する世界最大の Spring に関するカンファレンスだ。そこでは Spring Framework など Spring について様々な発表が行われる。私は今回これに参加した。今年はアメリカの Austin で開催された。</li>
 </ul>
-<h2 id="jsugでの発表">JSUGでの発表</h2>
+<h2 id="jsug-での発表">JSUG での発表</h2>
 <ul>
-<li>Spring OneではKotlinやAzure Spring Cloudなど様々なセッションを聞いた。特に印象に残ったセッションとしてSpring Initializrのセッションがあった( <a href="https://www.slideshare.net/Pivotal/creating-the-second-best-place-on-the-internet-with-spring-initializr/Pivotal/creating-the-second-best-place-on-the-internet-with-spring-initializr">Creating &ldquo;The Second Best Place on the Internet&rdquo; with Spring Initializr</a>)。この内容をもとにJSUGで発表をした。</li>
-<li>内容としては、Spring Initializrの発展の歴史とSpring Initlizrのカスタマイズの話である。</li>
-<li>デモコードは以下にある。READMEを読めば大体分かるはず。(<a href="https://github.com/takumi34/custom-spring-initializr">https://github.com/takumi34/custom-spring-initializr</a>)</li>
+<li>Spring One では Kotlin や Azure Spring Cloud など様々なセッションを聞いた。特に印象に残ったセッションとして Spring Initializr のセッションがあった( <a href="https://www.slideshare.net/Pivotal/creating-the-second-best-place-on-the-internet-with-spring-initializr/Pivotal/creating-the-second-best-place-on-the-internet-with-spring-initializr">Creating &ldquo;The Second Best Place on the Internet&rdquo; with Spring Initializr</a>)。この内容をもとに JSUG で発表をした。</li>
+<li>内容としては、Spring Initializr の発展の歴史と Spring Initlizr のカスタマイズの話である。</li>
+<li>デモコードは以下にある。README を読めば大体分かるはず。(<a href="https://github.com/takumi34/custom-spring-initializr">https://github.com/takumi34/custom-spring-initializr</a>)</li>
 <li>スライドは以下。</li>
 <li>
 <!-- raw HTML omitted -->
