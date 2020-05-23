@@ -6,8 +6,76 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Wed, 06 May 2020 17:09:11 +0900</lastBuildDate>
+		<lastBuildDate>Sat, 23 May 2020 15:55:55 +0900</lastBuildDate>
 		<atom:link href="https://takumi34.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Arch Linuxでカーネルビルドをした話</title>
+			<link>https://takumi34.github.io/posts/arch-kernel-build/</link>
+			<pubDate>Sat, 23 May 2020 15:55:55 +0900</pubDate>
+			
+			<guid>https://takumi34.github.io/posts/arch-kernel-build/</guid>
+			<description>Arch Linuxでカーネルビルドしたので、その時のメモ。 archwikiを参考にビルドを行った。今回はtraditionalな方法を使ったので、</description>
+			<content type="html"><![CDATA[<ul>
+<li>Arch Linuxでカーネルビルドしたので、その時のメモ。</li>
+<li><a href="https://wiki.archlinux.org/index.php/Kernel/Traditional_compilation">archwiki</a>を参考にビルドを行った。今回はtraditionalな方法を使ったので、手動でやることが多い。</li>
+</ul>
+<h2 id="ビルド方法">ビルド方法</h2>
+<ul>
+<li>まずはkernel.orgから最新のカーネルのソースを取って来てから解凍。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.6.14.tar.xz
+tar xJf linux-5.6.14.tar.xz 
+</code></pre></div><ul>
+<li>gccのバージョンが10.1.0だと新しすぎるせいかエラーが出たので、gcc-8をインストールした。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">yay -S gcc8
+<span class="nb">export</span> <span class="nv">CC</span><span class="o">=</span>gcc-8
+</code></pre></div><ul>
+<li>念の為、一度きれいにしておく。このコマンドで初期状態に戻せる。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">make mrproper
+</code></pre></div><ul>
+<li>archのデフォルトのconfigを取ってくる。他のディストリだとconfigはboot以下にあることが多いらしいがarchだと以下にある。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">zcat /proc/config.gz &gt; .config
+</code></pre></div><ul>
+<li>ここからカーネルのコンパイル。初め、yes ' &lsquo;とスペースを渡していたので失敗していた笑。</li>
+<li>make oldconfigをすると、configを更新できる。yesを渡さないと色々設定を聞かれる。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">yes <span class="s1">&#39;&#39;</span><span class="p">|</span> make oldconfig
+make &gt; ../linux5-6-14.log 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+</code></pre></div><ul>
+<li>モジュールをインストール。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">make modules_install
+</code></pre></div><ul>
+<li>コンパイルしたカーネルをbootディレクトリにコピー。コンパイルしたカーネルはarch以下にbzImageとして生成されるので、それをboot以下にコピーする。vmlinuzという名前を慣習的に付けるらしい。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">cp -v arch/x86_64/boot/bzImage /boot/vmlinuz-chika
+</code></pre></div><ul>
+<li>
+<p>RAMディスクの作成はarchwikiの通り。これでinitramfsができる。</p>
+</li>
+<li>
+<p>System.mapのコピーもarchwikiの通り。</p>
+</li>
+<li>
+<p>あとはブートローダの設定。grubを使っているので以下で新しいgrub.cfgに書き換える。</p>
+</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre></div><ul>
+<li>これでrebootするとビルドしたカーネルで立ち上がった。</li>
+</ul>
+<h2 id="感想">感想</h2>
+<ul>
+<li>archwikiの通りにやるだけで簡単にカーネルビルドできるかと思ったら、そう簡単には行かなかった。gccのバージョンであったり、karnelのバージョンによってもうまく行かないものがあった（これはバグかも）。</li>
+<li>とりあえず、これでカーネルビルドする手順と仕組みが分かったので、また一つ前進したと思う。</li>
+<li>今度はカーネルのソースをいじってから、ビルドしてみて、どうなるかをやってみたいと思う。</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>自然言語処理100本ノック第3章を解く（前編）</title>
