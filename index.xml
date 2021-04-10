@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 11 Apr 2021 03:01:43 +0900</lastBuildDate><atom:link href="https://takumi34.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Apr 2021 04:44:50 +0900</lastBuildDate><atom:link href="https://takumi34.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HugoのMediaType.Suffixのエラーの原因と対処法</title>
+      <link>https://takumi34.github.io/posts/hugo-error/</link>
+      <pubDate>Sun, 11 Apr 2021 04:44:50 +0900</pubDate>
+      
+      <guid>https://takumi34.github.io/posts/hugo-error/</guid>
+      <description>hugoの今回のエラー内容 OSはArchlinuxで、hugoのバージョンはhugo v0.82.0+extended いつも通りブログを書き終えた後、hugoコマンドを実行</description>
+    </item>
+    
     <item>
       <title>pandocを使用してreveal.jsのスライドを生成する方法</title>
       <link>https://takumi34.github.io/posts/pandoc-revealjs/</link>
@@ -87,15 +96,6 @@
       
       <guid>https://takumi34.github.io/posts/line-dev-day-2019/</guid>
       <description>Line Dev Day とは LINE DEV DAY会場 正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は 11/21-11/22 にお台場で開催された。私は今回両日</description>
-    </item>
-    
-    <item>
-      <title>JSUGで発表をした話</title>
-      <link>https://takumi34.github.io/posts/jsug_springone/</link>
-      <pubDate>Fri, 15 Nov 2019 03:43:42 +0900</pubDate>
-      
-      <guid>https://takumi34.github.io/posts/jsug_springone/</guid>
-      <description>JSUG とは日本 Spring ユーザ会のことを指す。日本の Spring コミュニティである。私はそこで開かれた Spring One2019 報告会で発表した。 Spring One とは Spring One とは Pivotal 社の主催する世界最大</description>
     </item>
     
   </channel>
