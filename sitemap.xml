@@ -1,168 +1,111 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/arch-linux/</loc>
-    <lastmod>2020-05-23T15:55:55+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/posts/arch-kernel-build/</loc>
-    <lastmod>2020-05-23T15:55:55+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/kernel/</loc>
-    <lastmod>2020-05-23T15:55:55+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/posts/</loc>
-    <lastmod>2020-05-23T15:55:55+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/</loc>
-    <lastmod>2020-05-23T15:55:55+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/nlp/</loc>
-    <lastmod>2020-05-06T17:09:11+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/regex/</loc>
-    <lastmod>2020-05-06T17:09:11+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/posts/nlp100-chapter3/</loc>
-    <lastmod>2020-05-06T17:09:11+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/linux/</loc>
-    <lastmod>2020-05-04T10:50:39+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/posts/archlinux-memo/</loc>
-    <lastmod>2020-05-04T10:50:39+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/unix/</loc>
-    <lastmod>2020-05-01T11:09:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/posts/nlp100-chapter2/</loc>
-    <lastmod>2020-05-01T11:09:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/python/</loc>
-    <lastmod>2020-04-30T16:25:34+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/posts/nlp100-chapter1/</loc>
-    <lastmod>2020-04-30T16:25:34+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/posts/jmooc-os/</loc>
-    <lastmod>2020-04-26T09:31:12+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/os/</loc>
-    <lastmod>2020-04-26T09:31:12+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/coursera/</loc>
-    <lastmod>2020-01-04T04:15:28+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/posts/gcp-coursera/</loc>
-    <lastmod>2020-01-04T04:15:28+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/gcp/</loc>
-    <lastmod>2020-01-04T04:15:28+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/line/</loc>
-    <lastmod>2019-11-22T04:40:32+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/posts/line-dev-day-2019/</loc>
-    <lastmod>2019-11-22T04:40:32+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/tech-conference/</loc>
-    <lastmod>2019-11-22T04:40:32+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/java/</loc>
-    <lastmod>2019-11-15T03:43:42+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/posts/jsug_springone/</loc>
-    <lastmod>2019-11-15T03:43:42+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/spring/</loc>
-    <lastmod>2019-11-15T03:43:42+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/golang/</loc>
-    <lastmod>2019-11-12T08:41:11+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/posts/gotunes10/</loc>
-    <lastmod>2019-11-12T08:41:11+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/posts/test/</loc>
-    <lastmod>2019-06-08T18:50:57+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://takumi34.github.io/tags/untagged/</loc>
-    <lastmod>2019-06-08T18:50:57+09:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://takumi34.github.io/</loc>
-    <lastmod>2019-06-08T18:39:10+09:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-04-11T03:01:43+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/pandoc/</loc>
+    <lastmod>2021-04-11T03:01:43+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/pandoc-revealjs/</loc>
+    <lastmod>2021-04-11T03:01:43+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/</loc>
+    <lastmod>2021-04-11T03:01:43+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/revealjs/</loc>
+    <lastmod>2021-04-11T03:01:43+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/</loc>
+    <lastmod>2021-04-11T03:01:43+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/arch-linux/</loc>
+    <lastmod>2020-05-23T15:55:55+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/arch-kernel-build/</loc>
+    <lastmod>2020-05-23T15:55:55+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/kernel/</loc>
+    <lastmod>2020-05-23T15:55:55+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/nlp/</loc>
+    <lastmod>2020-05-06T17:09:11+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/regex/</loc>
+    <lastmod>2020-05-06T17:09:11+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/nlp100-chapter3/</loc>
+    <lastmod>2020-05-06T17:09:11+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/linux/</loc>
+    <lastmod>2020-05-04T10:50:39+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/archlinux-memo/</loc>
+    <lastmod>2020-05-04T10:50:39+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/unix/</loc>
+    <lastmod>2020-05-01T11:09:14+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/nlp100-chapter2/</loc>
+    <lastmod>2020-05-01T11:09:14+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/python/</loc>
+    <lastmod>2020-04-30T16:25:34+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/nlp100-chapter1/</loc>
+    <lastmod>2020-04-30T16:25:34+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/jmooc-os/</loc>
+    <lastmod>2020-04-26T09:31:12+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/os/</loc>
+    <lastmod>2020-04-26T09:31:12+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/coursera/</loc>
+    <lastmod>2020-01-04T04:15:28+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/gcp-coursera/</loc>
+    <lastmod>2020-01-04T04:15:28+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/gcp/</loc>
+    <lastmod>2020-01-04T04:15:28+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/line/</loc>
+    <lastmod>2019-11-22T04:40:32+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/line-dev-day-2019/</loc>
+    <lastmod>2019-11-22T04:40:32+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/tech-conference/</loc>
+    <lastmod>2019-11-22T04:40:32+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/java/</loc>
+    <lastmod>2019-11-15T03:43:42+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/jsug_springone/</loc>
+    <lastmod>2019-11-15T03:43:42+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/spring/</loc>
+    <lastmod>2019-11-15T03:43:42+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/golang/</loc>
+    <lastmod>2019-11-12T08:41:11+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/gotunes10/</loc>
+    <lastmod>2019-11-12T08:41:11+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/test/</loc>
+    <lastmod>2019-06-08T18:50:57+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/untagged/</loc>
+    <lastmod>2019-06-08T18:50:57+09:00</lastmod>
+  </url><url>
     <loc>https://takumi34.github.io/privacy-policy/</loc>
     <lastmod>2019-06-08T18:39:10+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://takumi34.github.io/about-me/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://takumi34.github.io/projects/</loc>
   </url>
-  
 </urlset>

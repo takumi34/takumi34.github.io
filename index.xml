@@ -7,10 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 08 Jun 2019 18:39:10 +0900</lastBuildDate>
-    
-	<atom:link href="https://takumi34.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 11 Apr 2021 03:01:43 +0900</lastBuildDate><atom:link href="https://takumi34.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pandocを使用してreveal.jsのスライドを生成する方法</title>
+      <link>https://takumi34.github.io/posts/pandoc-revealjs/</link>
+      <pubDate>Sun, 11 Apr 2021 03:01:43 +0900</pubDate>
+      
+      <guid>https://takumi34.github.io/posts/pandoc-revealjs/</guid>
+      <description>簡易なスライドを作成するとき、pandocを使用してreveal.js形式のスライドを生成しているのだが、毎回その方法を忘れるので、メモとし</description>
+    </item>
     
     <item>
       <title>Arch Linuxでカーネルビルドをした話</title>
@@ -91,15 +96,6 @@
       
       <guid>https://takumi34.github.io/posts/jsug_springone/</guid>
       <description>JSUG とは日本 Spring ユーザ会のことを指す。日本の Spring コミュニティである。私はそこで開かれた Spring One2019 報告会で発表した。 Spring One とは Spring One とは Pivotal 社の主催する世界最大</description>
-    </item>
-    
-    <item>
-      <title>Golang10周年記念パーティーに行ってきた話</title>
-      <link>https://takumi34.github.io/posts/gotunes10/</link>
-      <pubDate>Tue, 12 Nov 2019 08:41:11 +0900</pubDate>
-      
-      <guid>https://takumi34.github.io/posts/gotunes10/</guid>
-      <description>Go Relese 10周年記念パーティに行ってきた 場所はメルカリで行われた。 Go Release 10 Year Anniversary Party in Tokyo Goの歴史やGoコミュニティーの歴史を振り返るようなセッション</description>
     </item>
     
   </channel>

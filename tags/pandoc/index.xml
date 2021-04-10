@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pandoc on chika</title>
+    <link>https://takumi34.github.io/tags/pandoc/</link>
+    <description>Recent content in pandoc on chika</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 11 Apr 2021 03:01:43 +0900</lastBuildDate><atom:link href="https://takumi34.github.io/tags/pandoc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pandocを使用してreveal.jsのスライドを生成する方法</title>
+      <link>https://takumi34.github.io/posts/pandoc-revealjs/</link>
+      <pubDate>Sun, 11 Apr 2021 03:01:43 +0900</pubDate>
+      
+      <guid>https://takumi34.github.io/posts/pandoc-revealjs/</guid>
+      <description>簡易なスライドを作成するとき、pandocを使用してreveal.js形式のスライドを生成しているのだが、毎回その方法を忘れるので、メモとし</description>
+    </item>
+    
+  </channel>
+</rss>

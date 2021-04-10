@@ -6,8 +6,102 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sat, 23 May 2020 15:55:55 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 11 Apr 2021 03:01:43 +0900</lastBuildDate>
 		<atom:link href="https://takumi34.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>pandocを使用してreveal.jsのスライドを生成する方法</title>
+			<link>https://takumi34.github.io/posts/pandoc-revealjs/</link>
+			<pubDate>Sun, 11 Apr 2021 03:01:43 +0900</pubDate>
+			
+			<guid>https://takumi34.github.io/posts/pandoc-revealjs/</guid>
+			<description>簡易なスライドを作成するとき、pandocを使用してreveal.js形式のスライドを生成しているのだが、毎回その方法を忘れるので、メモとし</description>
+			<content type="html"><![CDATA[<p>簡易なスライドを作成するとき、pandocを使用してreveal.js形式のスライドを生成しているのだが、毎回その方法を忘れるので、メモとしてこれを残す。</p>
+<h2 id="pandocとは">pandocとは</h2>
+<ul>
+<li><a href="https://pandoc.org/">pandoc</a>とは、ドキュメントを様々なフォーマットに変換することのできるツールである。例えば、markdownで記入した文章をLaTexやPDFに変換するということが出来る。</li>
+</ul>
+<h2 id="revealjsとは">reveal.jsとは</h2>
+<ul>
+<li><a href="https://revealjs.com/">reveal.js</a>とは、HTMLプレゼンテーションフレームワークで、例えば<a href="https://takumi34.github.io/sample_revealjs/sample.html">こんな感じ</a>のスライドを簡単に作ることができる便利なツールである。HTMLなので、CSSを調整すれば、色々とデザインの工夫も出来る。</li>
+</ul>
+<h2 id="スライドの作成方法">スライドの作成方法</h2>
+<ul>
+<li>pandocを使うことでmarkdownをreveal.js形式に変換することが出来るので、その機能を活用する。</li>
+</ul>
+<p>以下で具体的な手順を述べる。</p>
+<ol>
+<li>まずpandocをインストールする(Arch Linux)</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">yay -S pandoc
+</code></pre></div><ol start="2">
+<li>reveal.jsをcloneする</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/hakimel/reveal.js.git
+</code></pre></div><p>基本的には環境構築は以上で、あとはmarkdownを用意して、それをpandocで変換するだけである。</p>
+<h3 id="ディレクトリ構成例">ディレクトリ構成（例）</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sample-reveal
+├── Makefile
+├── README.md
+├── images
+│   └── sample.svg
+├── input.md
+├── reveal.js 
+├── style.css
+</code></pre></div><ul>
+<li>
+<p>ディレクトリ構成の説明</p>
+<ul>
+<li>images配下にはスライドで使用する画像を配置してある</li>
+<li>Makefileにはpandocの変換コマンドやgithub pagesへのアップロードなど、よく使うコマンドをまとめている</li>
+<li>input.mdは変換対象となるmarkdownファイル</li>
+<li>style.cssは変換する際に適用されるcss（わざわざcssファイルを用意しなくてもデフォルトのものがあるので、そのテーマを使うことも出来る）</li>
+</ul>
+</li>
+<li>
+<p>変換に必須なのはimput.mdとreveal.js</p>
+</li>
+</ul>
+<h3 id="pandocの使い方">pandocの使い方</h3>
+<ul>
+<li>pandocでreveal.jsに変換する際のコマンド（例）</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pandoc -t revealjs -s -c style.css -V <span class="nv">transition</span><span class="o">=</span>fade --self-contained input.md -o index.html  --slide-level<span class="o">=</span><span class="m">2</span>
+</code></pre></div><p>私はよくこのコマンドをよく使うので、これをMakefileにまとめている。</p>
+<ul>
+<li>pandocの詳しい使い方は<a href="https://pandoc.org/MANUAL.html">公式ガイド</a>を参照。用途に合わせて、先程のコマンドを工夫すればよい。</li>
+</ul>
+<p>以上のコマンドを実行すると、index.htmlが出力されるので、それをgithub pagesなどにアップロードすれば、簡単にホストすることが可能だ。</p>
+<ul>
+<li>例えば以下のmarkdownを変換すると</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-md" data-lang="md">% These are sample slides
+% chika
+
+
+<span class="gh"># sample
+</span><span class="gh"></span>
+hi hello
+
+<span class="gu">## sample2
+</span><span class="gu"></span>
+hi
+hey
+<span class="gu">### sample3
+</span></code></pre></div><p><a href="https://takumi34.github.io/sample_revealjs/sample.html">こんな感じ</a>
+のスライドが生成できる。</p>
+<p>reveal.js特有のmarkdownの記法については<a href="https://revealjs.com/markdown/">公式ガイド</a>を参照。シンタックスハイライトを入れたり、画像を挿入したり、HTMLをそのまま書き込んだりすることもできる。</p>
+<h2 id="まとめ">まとめ</h2>
+<ul>
+<li>pandocは便利！みんな使おう。</li>
+</ul>
+<h4 id="参考文献">参考文献</h4>
+<ul>
+<li><a href="https://dev.to/berry_clione/set-up-to-convert-a-markdown-file-to-revealjs-slides-by-pandoc-58n5">https://dev.to/berry_clione/set-up-to-convert-a-markdown-file-to-revealjs-slides-by-pandoc-58n5</a></li>
+<li><a href="https://mickey-happygolucky.hatenablog.com/entry/2019/04/01/153812">https://mickey-happygolucky.hatenablog.com/entry/2019/04/01/153812</a></li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Arch Linuxでカーネルビルドをした話</title>
