@@ -161,7 +161,7 @@
 </code></pre></div><ul>
 <li>ログ出力のテストクラス</li>
 </ul>
-<p>LoggerTest.class</p>
+<p>SampleLoggerTest.class</p>
 <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.example.logtest</span><span class="o">;</span>
 
 
@@ -190,7 +190,7 @@
 
 
 <span class="nd">@SpringBootTest</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoggerTest</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleLoggerTest</span> <span class="o">{</span>
 
     <span class="nd">@Autowired</span>
     <span class="kd">private</span> <span class="n">SampleLogger</span> <span class="n">sampleLogger</span><span class="o">;</span>
