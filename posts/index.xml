@@ -6,8 +6,270 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sun, 11 Apr 2021 04:44:50 +0900</lastBuildDate>
+		<lastBuildDate>Mon, 07 Jun 2021 01:49:55 +0900</lastBuildDate>
 		<atom:link href="https://takumi34.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Spring Bootにおけるログのテスト方法について</title>
+			<link>https://takumi34.github.io/posts/logger_test_springboot/</link>
+			<pubDate>Mon, 07 Jun 2021 01:49:55 +0900</pubDate>
+			
+			<guid>https://takumi34.github.io/posts/logger_test_springboot/</guid>
+			<description>Spring Bootでログの出力内容をテストしたいときがしばしばある。しかし、その実装はなかなかに癖があると思っていたため、この解説記事を執筆すること</description>
+			<content type="html"><![CDATA[<p>Spring Bootでログの出力内容をテストしたいときがしばしばある。しかし、その実装はなかなかに癖があると思っていたため、この解説記事を執筆することにした。</p>
+<br>
+<p>本記事ではログの出力内容をテストする方法について、以下の２つの方法を解説する。（他にも良い方法があればコメント欄で教えてほしい）</p>
+<ol>
+<li>Mockitoを使って、Appenderをmockする方法(今回はLogbackを使用)</li>
+<li>OutputCaptureを使う方法</li>
+</ol>
+<br>
+<p>コード全体を見たい方は<a href="#%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%B3%E3%83%BC%E3%83%89">こちら</a></p>
+<br>
+<h2 id="前提条件">前提条件</h2>
+<p>以下を使用している。</p>
+<ul>
+<li>Spring Boot(version 2.5.0)</li>
+<li>JUnit5</li>
+<li>Logback</li>
+</ul>
+<br>
+<h1 id="1-mockitoを使ってappenderをmockする方法">1. Mockitoを使って、Appenderをmockする方法</h1>
+<ul>
+<li>
+<p>この方法のメリットとしては、LoggingEventをキャプチャしているため、ログの内容をそのままテストできる点が挙げられる。</p>
+</li>
+<li>
+<p>デメリットとしては実装が少しややこしい。</p>
+</li>
+</ul>
+<br>
+<p>まずは以下の実装を見てほしい。</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java">  <span class="nd">@Mock</span>
+  <span class="kd">private</span> <span class="n">Appender</span><span class="o">&lt;</span><span class="n">ILoggingEvent</span><span class="o">&gt;</span> <span class="n">mockAppender</span><span class="o">;</span>
+
+  <span class="nd">@Captor</span>
+  <span class="kd">private</span> <span class="n">ArgumentCaptor</span><span class="o">&lt;</span><span class="n">LoggingEvent</span><span class="o">&gt;</span> <span class="n">captorLoggingEvent</span><span class="o">;</span>
+</code></pre></div><ul>
+<li>
+<p>MockitoのArgumentCaptorを使用してLoggingEventをキャプチャしている。</p>
+</li>
+<li>
+<p>ArgumentCaptorとは、その名の通り引数をキャプチャできるもので、引数を直接取れない場合に便利だ。</p>
+</li>
+</ul>
+<br>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@BeforeEach</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setup</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kd">final</span> <span class="n">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="o">(</span><span class="n">Logger</span><span class="o">)</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">Logger</span><span class="o">.</span><span class="na">ROOT_LOGGER_NAME</span><span class="o">);</span>
+  <span class="n">logger</span><span class="o">.</span><span class="na">addAppender</span><span class="o">(</span><span class="n">mockAppender</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@AfterEach</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">cleanup</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kd">final</span> <span class="n">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="o">(</span><span class="n">Logger</span><span class="o">)</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">Logger</span><span class="o">.</span><span class="na">ROOT_LOGGER_NAME</span><span class="o">);</span>
+  <span class="n">logger</span><span class="o">.</span><span class="na">detachAppender</span><span class="o">(</span><span class="n">mockAppender</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div><ul>
+<li>テストメソッドが実行される前にrootロガーにappenderをaddしている。そして、実行後にdetachするようにしている。(もちろんrootロガーを使用していない場合は適切なロガーを指定する必要がある)</li>
+</ul>
+<br>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testSampleLoggerUsingMockito</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">sampleLogger</span><span class="o">.</span><span class="na">outputLog</span><span class="o">();</span>
+
+  <span class="n">verify</span><span class="o">(</span><span class="n">mockAppender</span><span class="o">,</span> <span class="n">times</span><span class="o">(</span><span class="n">1</span><span class="o">)).</span><span class="na">doAppend</span><span class="o">(</span><span class="n">captorLoggingEvent</span><span class="o">.</span><span class="na">capture</span><span class="o">());</span>
+  <span class="kd">final</span> <span class="n">LoggingEvent</span> <span class="n">loggingEvent</span> <span class="o">=</span> <span class="n">captorLoggingEvent</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+
+
+  <span class="c1">//test the log level and message
+</span><span class="c1"></span>  <span class="n">assertEquals</span><span class="o">(</span><span class="n">Level</span><span class="o">.</span><span class="na">INFO</span><span class="o">,</span> <span class="n">loggingEvent</span><span class="o">.</span><span class="na">getLevel</span><span class="o">());</span>
+  <span class="n">assertEquals</span><span class="o">(</span><span class="s">&#34;Logger_test&#34;</span><span class="o">,</span>
+          <span class="n">loggingEvent</span><span class="o">.</span><span class="na">getFormattedMessage</span><span class="o">());</span>
+<span class="o">}</span>
+</code></pre></div><ul>
+<li>ここではログレベルとメッセージのみ取得しているが、他にも色々取得することができるので気になる人は<a href="https://javadoc.io/doc/ch.qos.logback/logback-classic/latest/ch/qos/logback/classic/spi/LoggingEvent.html">ここ</a>を参照。</li>
+</ul>
+<br>
+<h1 id="2-outputcaptureを使う方法">2. OutputCaptureを使う方法</h1>
+<p><a href="https://javadoc.io/doc/org.springframework.boot/spring-boot-test/latest/org/springframework/boot/test/system/OutputCaptureExtension.html">OutputCapture</a>とはSpring Bootから提供されている機能で、（ログを含めた）出力をすべてキャプチャすることができる。</p>
+<ul>
+<li>
+<p>この方法のメリットとしては、比較的簡単に実装でき、出力すべてをキャプチャすることができる点が挙げられる。（System.errとSystem.outはそれぞれ取ることも可能）</p>
+</li>
+<li>
+<p>デメリットとしては、１つ目の方法とは違って出力すべてを取得するものなので、細かい内容をそれぞれ取ることはできない。もしやるなら自力でパース処理をするしかない。
+<br></p>
+</li>
+</ul>
+<p>以下の実装を見てほしい。</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@ExtendWith</span><span class="o">(</span><span class="n">OutputCaptureExtension</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testSampleLoggerUsingOutputCapture</span><span class="o">(</span><span class="n">CapturedOutput</span> <span class="n">output</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">sampleLogger</span><span class="o">.</span><span class="na">outputLog</span><span class="o">();</span>
+
+    <span class="c1">//test the capturedOutput
+</span><span class="c1"></span>    <span class="n">assertTrue</span><span class="o">(</span><span class="n">output</span><span class="o">.</span><span class="na">toString</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">&#34;Logger_test&#34;</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre></div><ul>
+<li>本記事を読む人なら当然JUnit5を使っていると思うので、@ExtendWith(OutputCaptureExtension.class)をする。</li>
+</ul>
+<p>(未だにJUnit4を使っている人は<a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/system/OutputCaptureRule.html">OutputCaptureRule</a>というのもある&hellip;)</p>
+<ul>
+<li>あとは、テストメソッドの引数にCapturedOutputをinjectするだけで、出力内容を取得することが出来る（簡単）。</li>
+</ul>
+<h1 id="まとめ">まとめ</h1>
+<p>Spring Bootにおけるログのテスト方法としては大きく分けて２つある。</p>
+<ol>
+<li>Mockitoを使って、Appenderをmockする方法</li>
+</ol>
+<ul>
+<li>メリット：実装がやや面倒</li>
+<li>デメリット：ログの中身を細かく取得できる</li>
+</ul>
+<ol start="2">
+<li>OutputCaptureを使う方法</li>
+</ol>
+<ul>
+<li>メリット：実装が楽</li>
+<li>デメリット：出力内容を全て取得するので、細かくチェックしたい時は自力でパースする必要がある</li>
+</ul>
+<p><em><strong>以上、ケースバイケースなのでその時に合ったものを使うのが大事！</strong></em></p>
+<br>
+<h3 id="サンプルコード">サンプルコード</h3>
+<p>今回作成したプロジェクトの中身を紹介する。(<a href="https://github.com/takumi34/spring-boot-log-test">Githubにも上がっている</a>)</p>
+<p>大きく分けて２つのクラスがある。</p>
+<ul>
+<li>ログ出力クラス</li>
+</ul>
+<p>SampleLogger.class</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.example.logtest</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.slf4j.Logger</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.LoggerFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="o">;</span>
+
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleLogger</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">Logger</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">outputLog</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;Logger_test&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div><ul>
+<li>ログ出力のテストクラス</li>
+</ul>
+<p>LoggerTest.class</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.example.logtest</span><span class="o">;</span>
+
+
+<span class="kn">import</span> <span class="nn">ch.qos.logback.classic.Level</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">ch.qos.logback.classic.Logger</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">ch.qos.logback.classic.spi.ILoggingEvent</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">ch.qos.logback.classic.spi.LoggingEvent</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">ch.qos.logback.core.Appender</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.AfterEach</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.BeforeEach</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.extension.ExtendWith</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.mockito.ArgumentCaptor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.mockito.Captor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.mockito.Mock</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.LoggerFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.test.context.SpringBootTest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.test.system.CapturedOutput</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.test.system.OutputCaptureExtension</span><span class="o">;</span>
+
+<span class="kn">import static</span> <span class="nn">org.junit.jupiter.api.Assertions.assertEquals</span><span class="o">;</span>
+<span class="kn">import static</span> <span class="nn">org.junit.jupiter.api.Assertions.assertTrue</span><span class="o">;</span>
+<span class="kn">import static</span> <span class="nn">org.mockito.Mockito.times</span><span class="o">;</span>
+<span class="kn">import static</span> <span class="nn">org.mockito.Mockito.verify</span><span class="o">;</span>
+
+
+<span class="nd">@SpringBootTest</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoggerTest</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">SampleLogger</span> <span class="n">sampleLogger</span><span class="o">;</span>
+
+    <span class="nd">@Mock</span>
+    <span class="kd">private</span> <span class="n">Appender</span><span class="o">&lt;</span><span class="n">ILoggingEvent</span><span class="o">&gt;</span> <span class="n">mockAppender</span><span class="o">;</span>
+
+    <span class="nd">@Captor</span>
+    <span class="kd">private</span> <span class="n">ArgumentCaptor</span><span class="o">&lt;</span><span class="n">LoggingEvent</span><span class="o">&gt;</span> <span class="n">captorLoggingEvent</span><span class="o">;</span>
+
+    <span class="nd">@BeforeEach</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setup</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="n">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="o">(</span><span class="n">Logger</span><span class="o">)</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">Logger</span><span class="o">.</span><span class="na">ROOT_LOGGER_NAME</span><span class="o">);</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">addAppender</span><span class="o">(</span><span class="n">mockAppender</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@AfterEach</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">cleanup</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="n">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="o">(</span><span class="n">Logger</span><span class="o">)</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">Logger</span><span class="o">.</span><span class="na">ROOT_LOGGER_NAME</span><span class="o">);</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">detachAppender</span><span class="o">(</span><span class="n">mockAppender</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//use Mockito
+</span><span class="c1"></span>    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testSampleLoggerUsingMockito</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">sampleLogger</span><span class="o">.</span><span class="na">outputLog</span><span class="o">();</span>
+
+        <span class="n">verify</span><span class="o">(</span><span class="n">mockAppender</span><span class="o">,</span> <span class="n">times</span><span class="o">(</span><span class="n">1</span><span class="o">)).</span><span class="na">doAppend</span><span class="o">(</span><span class="n">captorLoggingEvent</span><span class="o">.</span><span class="na">capture</span><span class="o">());</span>
+        <span class="kd">final</span> <span class="n">LoggingEvent</span> <span class="n">loggingEvent</span> <span class="o">=</span> <span class="n">captorLoggingEvent</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+
+
+        <span class="c1">//test the log level and message
+</span><span class="c1"></span>        <span class="n">assertEquals</span><span class="o">(</span><span class="n">Level</span><span class="o">.</span><span class="na">INFO</span><span class="o">,</span> <span class="n">loggingEvent</span><span class="o">.</span><span class="na">getLevel</span><span class="o">());</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="s">&#34;Logger_test&#34;</span><span class="o">,</span>
+                <span class="n">loggingEvent</span><span class="o">.</span><span class="na">getFormattedMessage</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="c1">//use OutputCapture
+</span><span class="c1"></span>    <span class="nd">@ExtendWith</span><span class="o">(</span><span class="n">OutputCaptureExtension</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testSampleLoggerUsingOutputCapture</span><span class="o">(</span><span class="n">CapturedOutput</span> <span class="n">output</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">sampleLogger</span><span class="o">.</span><span class="na">outputLog</span><span class="o">();</span>
+
+        <span class="c1">//test the capturedOutput
+</span><span class="c1"></span>        <span class="n">assertTrue</span><span class="o">(</span><span class="n">output</span><span class="o">.</span><span class="na">toString</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">&#34;Logger_test&#34;</span><span class="o">));</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div><h3 id="references">References</h3>
+<ul>
+<li>
+<p>Appenderをmockする方法について</p>
+<ul>
+<li><a href="https://dev.to/claudiohigashi/mocking-logger-in-java-with-mockito-51k8">https://dev.to/claudiohigashi/mocking-logger-in-java-with-mockito-51k8</a></li>
+<li><a href="https://gist.github.com/bloodredsun/a041de13e57bf3c6c040">https://gist.github.com/bloodredsun/a041de13e57bf3c6c040</a></li>
+</ul>
+</li>
+<li>
+<p>ArgumentCaptorについて</p>
+<ul>
+<li><a href="https://www.javadoc.io/doc/org.mockito/mockito-core/2.6.9/org/mockito/ArgumentCaptor.html">https://www.javadoc.io/doc/org.mockito/mockito-core/2.6.9/org/mockito/ArgumentCaptor.html</a></li>
+<li><a href="https://www.baeldung.com/mockito-argumentcaptor">https://www.baeldung.com/mockito-argumentcaptor</a></li>
+</ul>
+</li>
+<li>
+<p>OutputCaptureについて</p>
+<ul>
+<li><a href="https://javadoc.io/doc/org.springframework.boot/spring-boot-test/latest/org/springframework/boot/test/system/OutputCaptureExtension.html">https://javadoc.io/doc/org.springframework.boot/spring-boot-test/latest/org/springframework/boot/test/system/OutputCaptureExtension.html</a></li>
+</ul>
+</li>
+<li>
+<p>本記事では取り上げなかったが、Mockitoを使わずにListAppenderをextendして、カスタムのAppenderクラスを作ってテストしている例としては以下が参考になる。</p>
+<ul>
+<li><a href="https://www.baeldung.com/junit-asserting-logs">https://www.baeldung.com/junit-asserting-logs</a></li>
+</ul>
+</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>HugoのMediaType.Suffixのエラーの原因と対処法</title>

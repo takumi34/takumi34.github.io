@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 15 Nov 2019 03:43:42 +0900</lastBuildDate><atom:link href="https://takumi34.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Jun 2021 01:49:55 +0900</lastBuildDate><atom:link href="https://takumi34.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Bootにおけるログのテスト方法について</title>
+      <link>https://takumi34.github.io/posts/logger_test_springboot/</link>
+      <pubDate>Mon, 07 Jun 2021 01:49:55 +0900</pubDate>
+      
+      <guid>https://takumi34.github.io/posts/logger_test_springboot/</guid>
+      <description>Spring Bootでログの出力内容をテストしたいときがしばしばある。しかし、その実装はなかなかに癖があると思っていたため、この解説記事を執筆すること</description>
+    </item>
+    
     <item>
       <title>JSUGで発表をした話</title>
       <link>https://takumi34.github.io/posts/jsug_springone/</link>
