@@ -4,18 +4,17 @@
     <title>OS on chika</title>
     <link>https://takumi34.github.io/tags/os/</link>
     <description>Recent content in OS on chika</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 26 Apr 2020 09:31:12 +0900</lastBuildDate><atom:link href="https://takumi34.github.io/tags/os/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Apr 2020 09:31:12 +0900</lastBuildDate>
+    <atom:link href="https://takumi34.github.io/tags/os/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JMOOCでOSのコースを修了した話</title>
       <link>https://takumi34.github.io/posts/jmooc-os/</link>
       <pubDate>Sun, 26 Apr 2020 09:31:12 +0900</pubDate>
-      
       <guid>https://takumi34.github.io/posts/jmooc-os/</guid>
-      <description>JMOOCとは 流行りのMOOCの日本版。 修了証 受けたコース 「オペレーティングシステム2020」を受けた。 内容としては、OSの知識を俯瞰するよ</description>
+      <description>&lt;h2 id=&#34;jmoocとは&#34;&gt;JMOOCとは&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;流行りのMOOCの日本版。&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;https://takumi34.github.io/images/certificationOS.PNG&#34; width=&#34;320&#34; height=&#34;640&#34;&gt;&lt;figcaption&gt;&#xA;       &lt;h4&gt;修了証&lt;/h4&gt;&#xA;     &lt;/figcaption&gt;&#xA; &lt;/figure&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;受けたコース&#34;&gt;受けたコース&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;「オペレーティングシステム2020」を受けた。&lt;/li&gt;&#xA;&lt;li&gt;内容としては、OSの知識を俯瞰するような感じで、メモリ管理やプロセス、ファイルシステムなど基本を押さえた内容だった。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;受けた理由&#34;&gt;受けた理由&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;最近Linuxカーネルのソースコードを読んでいるけれど、よく分からない単語や知らない仕組みがあり、やっぱり難しい。そういう意味で、OSの基礎を再度固めたかったから。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;感想&#34;&gt;感想&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;事前にOSの教科書を読んだり、OS自作の本も読んでいたので、特に問題なく受講できた。&lt;/li&gt;&#xA;&lt;li&gt;全て映像授業なのかと思っていたが、ほとんどはPDFの資料であった。そのレジュメには誤字があったりもしたが、内容の質は良かったと思う。&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
-    
   </channel>
 </rss>

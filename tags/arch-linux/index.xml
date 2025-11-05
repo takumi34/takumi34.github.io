@@ -4,27 +4,24 @@
     <title>Arch Linux on chika</title>
     <link>https://takumi34.github.io/tags/arch-linux/</link>
     <description>Recent content in Arch Linux on chika</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 23 May 2020 15:55:55 +0900</lastBuildDate><atom:link href="https://takumi34.github.io/tags/arch-linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 May 2020 15:55:55 +0900</lastBuildDate>
+    <atom:link href="https://takumi34.github.io/tags/arch-linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Linuxでカーネルビルドをした話</title>
       <link>https://takumi34.github.io/posts/arch-kernel-build/</link>
       <pubDate>Sat, 23 May 2020 15:55:55 +0900</pubDate>
-      
       <guid>https://takumi34.github.io/posts/arch-kernel-build/</guid>
-      <description>Arch Linuxでカーネルビルドしたので、その時のメモ。 archwikiを参考にビルドを行った。今回はtraditionalな方法を使ったので、</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;Arch Linuxでカーネルビルドしたので、その時のメモ。&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/index.php/Kernel/Traditional_compilation&#34;&gt;archwiki&lt;/a&gt;を参考にビルドを行った。今回はtraditionalな方法を使ったので、手動でやることが多い。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;ビルド方法&#34;&gt;ビルド方法&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;まずはkernel.orgから最新のカーネルのソースを取って来てから解凍。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.6.14.tar.xz&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tar xJf linux-5.6.14.tar.xz &#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;gccのバージョンが10.1.0だと新しすぎるせいかエラーが出たので、gcc-8をインストールした。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S gcc8&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;CC&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;gcc-8&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;念の為、一度きれいにしておく。このコマンドで初期状態に戻せる。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make mrproper&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;archのデフォルトのconfigを取ってくる。他のディストリだとconfigはboot以下にあることが多いらしいがarchだと以下にある。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;zcat /proc/config.gz &amp;gt; .config&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;ここからカーネルのコンパイル。初め、yes &amp;rsquo; &amp;lsquo;とスペースを渡していたので失敗していた笑。&lt;/li&gt;&#xA;&lt;li&gt;make oldconfigをすると、configを更新できる。yesを渡さないと色々設定を聞かれる。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yes &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; make oldconfig&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make &amp;gt; ../linux5-6-14.log 2&amp;gt;&lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;モジュールをインストール。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make modules_install&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;コンパイルしたカーネルをbootディレクトリにコピー。コンパイルしたカーネルはarch以下にbzImageとして生成されるので、それをboot以下にコピーする。vmlinuzという名前を慣習的に付けるらしい。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp -v arch/x86_64/boot/bzImage /boot/vmlinuz-chika&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;RAMディスクの作成はarchwikiの通り。これでinitramfsができる。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>メインマシンをArch Linuxに移行した話とその環境構築メモ</title>
       <link>https://takumi34.github.io/posts/archlinux-memo/</link>
       <pubDate>Mon, 04 May 2020 10:50:39 +0900</pubDate>
-      
       <guid>https://takumi34.github.io/posts/archlinux-memo/</guid>
-      <description>メインマシンとしてUbuntuを愛用していたのだが、つい先日Ubuntu20.04がLTS版として出たので、バージョンを上げたところ、調子が</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;メインマシンとしてUbuntuを愛用していたのだが、つい先日Ubuntu20.04がLTS版として出たので、バージョンを上げたところ、調子が悪くなった（networkmanagerが問題なのではないかと思うのだけど、原因不明。起動してしばらくするとネットに繋がらなくなるし、ターミナルからコマンドも実行できなくなる。再起動もできなくなるという感じ。）ので、これを機にArch Linuxへ乗り換えることにした。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;arch-linuxとは&#34;&gt;Arch Linuxとは&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Simplicityを謳っているOSで、インストール時は本当に何も入っていないというぐらい何も入っていない。&lt;/li&gt;&#xA;&lt;li&gt;ローリングアップデートの方式なので、常にOSを最新の状態にできる。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;(今思えば、UbuntuはUSBを挿してインストールすればほぼ環境構築が終わったようなものだったのだなと思う。)&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

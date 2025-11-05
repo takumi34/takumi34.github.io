@@ -4,18 +4,17 @@
     <title>Golang on chika</title>
     <link>https://takumi34.github.io/tags/golang/</link>
     <description>Recent content in Golang on chika</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 12 Nov 2019 08:41:11 +0900</lastBuildDate><atom:link href="https://takumi34.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Nov 2019 08:41:11 +0900</lastBuildDate>
+    <atom:link href="https://takumi34.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Golang10周年記念パーティーに行ってきた話</title>
       <link>https://takumi34.github.io/posts/gotunes10/</link>
       <pubDate>Tue, 12 Nov 2019 08:41:11 +0900</pubDate>
-      
       <guid>https://takumi34.github.io/posts/gotunes10/</guid>
-      <description>Go Relese 10周年記念パーティに行ってきた 場所はメルカリで行われた。 Go Release 10 Year Anniversary Party in Tokyo Goの歴史やGoコミュニティーの歴史を振り返るようなセッション</description>
+      <description>&lt;h1 id=&#34;go-relese-10周年記念パーティに行ってきた&#34;&gt;Go Relese 10周年記念パーティに行ってきた&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;場所はメルカリで行われた。&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gocon.connpass.com/event/153665/&#34;&gt;Go Release 10 Year Anniversary Party in Tokyo&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Goの歴史やGoコミュニティーの歴史を振り返るようなセッションが多かった。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;セッションの内容&#34;&gt;セッションの内容&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;yoshiさんやtenntennさんの発表があった。&lt;/li&gt;&#xA;&lt;li&gt;特にyoshiさんの発表は面白かった。&#xA;&lt;ul&gt;&#xA;&lt;li&gt;内容としては、Goの歴史を振り返るもので、ALGOLから始まり、concurrencyの歴史、Goを作った人たちが出会ったときの話、Goのリリースの歴史など、知らないことが多かった。&lt;/li&gt;&#xA;&lt;li&gt;そのうちスライドの資料が公開されると思うので見ておくと良いと思う。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
-    
   </channel>
 </rss>

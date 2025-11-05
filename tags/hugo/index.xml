@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hugo on chika</title>
+    <title>Hugo on chika</title>
     <link>https://takumi34.github.io/tags/hugo/</link>
-    <description>Recent content in hugo on chika</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Hugo on chika</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 11 Apr 2021 04:44:50 +0900</lastBuildDate><atom:link href="https://takumi34.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Apr 2021 04:44:50 +0900</lastBuildDate>
+    <atom:link href="https://takumi34.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HugoのMediaType.Suffixのエラーの原因と対処法</title>
       <link>https://takumi34.github.io/posts/hugo-error/</link>
       <pubDate>Sun, 11 Apr 2021 04:44:50 +0900</pubDate>
-      
       <guid>https://takumi34.github.io/posts/hugo-error/</guid>
-      <description>hugoの今回のエラー内容 OSはArchlinuxで、hugoのバージョンはhugo v0.82.0+extended いつも通りブログを書き終えた後、hugoコマンドを実行</description>
+      <description>&lt;h2 id=&#34;hugoの今回のエラー内容&#34;&gt;hugoの今回のエラー内容&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;OSはArchlinuxで、hugoのバージョンはhugo v0.82.0+extended&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;いつも通りブログを書き終えた後、hugoコマンドを実行すると、以下のようなエラーが出た。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

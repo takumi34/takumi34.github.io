@@ -7,20 +7,27 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="theme-color" content="#494f5c">
 	<meta name="msapplication-TileColor" content="#494f5c">
-<meta itemprop="name" content="Line Dev Day 2019に行ってきた話">
-<meta itemprop="description" content="Line Dev Day とは LINE DEV DAY会場 正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は 11/21-11/22 にお台場で開催された。私は今回両日"><meta itemprop="datePublished" content="2019-11-22T04:40:32&#43;09:00" />
-<meta itemprop="dateModified" content="2019-11-22T04:40:32&#43;09:00" />
-<meta itemprop="wordCount" content="1428">
-<meta itemprop="keywords" content="tech-conference,Line," /><meta property="og:title" content="Line Dev Day 2019に行ってきた話" />
-<meta property="og:description" content="Line Dev Day とは LINE DEV DAY会場 正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は 11/21-11/22 にお台場で開催された。私は今回両日" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://takumi34.github.io/posts/line-dev-day-2019/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-11-22T04:40:32&#43;09:00" />
-<meta property="article:modified_time" content="2019-11-22T04:40:32&#43;09:00" />
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Line Dev Day 2019に行ってきた話"/>
-<meta name="twitter:description" content="Line Dev Day とは LINE DEV DAY会場 正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は 11/21-11/22 にお台場で開催された。私は今回両日"/>
+  <meta itemprop="name" content="Line Dev Day 2019に行ってきた話">
+  <meta itemprop="description" content="Line Dev Day とは LINE DEV DAY会場 正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は 11/21-11/22 にお台場で開催された。私は今回両日ともに参加した。私は以前LINEにエンジニアインターンに参加していたということもあってLine Dev Dayに参加したいと思っていた。 まず驚いたこと 受付では顔認証による参加者確認が行われていた。私は LINE アプリによる確認を行うレーンに並んで板が、やはり顔認証確認の方が受付のスピードが早かったように感じた。精度も良いのではないだろうか。 カンファレンスの内容について 発表は、キーノート、セッション、ブース、ポスター発表、各種ハンズオンという構成になっている。 両日とも午前中はキーノート、午後にセッションなどがある。セッションには各業界の有名人を招待しているようだった。例えば、甘利さんや徳丸さんが招待されていた。 今回、二日間で私は一回２時間のハンズオンを２つ受けたのでセッションはあまり聞けなかった。 以下で私が聞いて面白かったと思うセッションやハンズオンについて紹介したいと思う。 ハンズオン Learning Session について 一日目には「仕事をよりクリエイティブにするための『Learning Session』の実践」というハンズオンを受けた。 Learning Session とは LINE 社内で行っているモブプロの手法を使った勉強会のことを言うらしい。私は普段からペアプロやモブプロを行っており、自分としても好きな XP の手法なので参加した。Learning Session については下記のブログに纏められているので気になった方は読むといいだろう。(仕事をよりクリエイティブにするための「Learning Session」ノススメ ) ハンズオンがスタートしてからモブプロの軽い説明があり、それから各チームに別れた。チームは各々がやってみたいこと（例えば、circle ci や flutter や k8s など）を出し合い、自分の入りたいチームに入るというものだった。私は flutter を始めようと思っていたので flutter のチームに参加した。 それから１時間半ほどモブプロを行って、結果的には環境構築が終わって hello world が成功したところで終わってしまった。ダウンロードなどにどうしても時間が掛かってしまうので、その間は Dart や flutter のチュートリアルを眺めたり、他のフレームワーク（React や Xamarin など）の違いなどを調べていた。 ハンズオンの講師の方に「モブプログラミング・ベストプラクティス」を読んで実際にモブプロをしているという話をすると、モブプロ創始者の一人である Chris Lucian さんの論文を読むと良いと教えて頂いたので今度読もうと思う。 Armeria について 二日目には「Armeria と WebFlux でマイクロサービスを強化」のハンズオンを受けた。 Armeria とは LINE の OSS で非同期 RPC/API のためのライブラリーだ(https://github.com/line/armeria) LINE DEV DEY でも Armeria に関するセッションが複数行われており、Slack でも採用されているようだ。 ハンズオンの内容としては、実際に Spring Boot のプロジェクトに Armeria を組み込んで使ってみるという内容だった。(その際のデモコードのリポジトリ) Armeriaのstarterが用意されているので比較的簡単に SpringのDIに組み込めるという印象だ。 Springのecosystemと共存する形でArmeriaを使ってgRPCやThriftをよしなに非同期にできるというのがメリットのようだ。Armeriaはh2cもデフォルトでサポートしているらしい。 // build.gradle dependencies { implementation &#39;com.linecorp.armeria:armeria-spring-boot-webflux-starter&#39; } dependencyManagement { imports { mavenBom &#39;com.linecorp.armeria:armeria-bom:0.96.0&#39; } }">
+  <meta itemprop="datePublished" content="2019-11-22T04:40:32+09:00">
+  <meta itemprop="dateModified" content="2019-11-22T04:40:32+09:00">
+  <meta itemprop="wordCount" content="1428">
+  <meta itemprop="keywords" content="Tech-Conference,Line"><meta property="og:url" content="https://takumi34.github.io/posts/line-dev-day-2019/">
+  <meta property="og:site_name" content="chika">
+  <meta property="og:title" content="Line Dev Day 2019に行ってきた話">
+  <meta property="og:description" content="Line Dev Day とは LINE DEV DAY会場 正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は 11/21-11/22 にお台場で開催された。私は今回両日ともに参加した。私は以前LINEにエンジニアインターンに参加していたということもあってLine Dev Dayに参加したいと思っていた。 まず驚いたこと 受付では顔認証による参加者確認が行われていた。私は LINE アプリによる確認を行うレーンに並んで板が、やはり顔認証確認の方が受付のスピードが早かったように感じた。精度も良いのではないだろうか。 カンファレンスの内容について 発表は、キーノート、セッション、ブース、ポスター発表、各種ハンズオンという構成になっている。 両日とも午前中はキーノート、午後にセッションなどがある。セッションには各業界の有名人を招待しているようだった。例えば、甘利さんや徳丸さんが招待されていた。 今回、二日間で私は一回２時間のハンズオンを２つ受けたのでセッションはあまり聞けなかった。 以下で私が聞いて面白かったと思うセッションやハンズオンについて紹介したいと思う。 ハンズオン Learning Session について 一日目には「仕事をよりクリエイティブにするための『Learning Session』の実践」というハンズオンを受けた。 Learning Session とは LINE 社内で行っているモブプロの手法を使った勉強会のことを言うらしい。私は普段からペアプロやモブプロを行っており、自分としても好きな XP の手法なので参加した。Learning Session については下記のブログに纏められているので気になった方は読むといいだろう。(仕事をよりクリエイティブにするための「Learning Session」ノススメ ) ハンズオンがスタートしてからモブプロの軽い説明があり、それから各チームに別れた。チームは各々がやってみたいこと（例えば、circle ci や flutter や k8s など）を出し合い、自分の入りたいチームに入るというものだった。私は flutter を始めようと思っていたので flutter のチームに参加した。 それから１時間半ほどモブプロを行って、結果的には環境構築が終わって hello world が成功したところで終わってしまった。ダウンロードなどにどうしても時間が掛かってしまうので、その間は Dart や flutter のチュートリアルを眺めたり、他のフレームワーク（React や Xamarin など）の違いなどを調べていた。 ハンズオンの講師の方に「モブプログラミング・ベストプラクティス」を読んで実際にモブプロをしているという話をすると、モブプロ創始者の一人である Chris Lucian さんの論文を読むと良いと教えて頂いたので今度読もうと思う。 Armeria について 二日目には「Armeria と WebFlux でマイクロサービスを強化」のハンズオンを受けた。 Armeria とは LINE の OSS で非同期 RPC/API のためのライブラリーだ(https://github.com/line/armeria) LINE DEV DEY でも Armeria に関するセッションが複数行われており、Slack でも採用されているようだ。 ハンズオンの内容としては、実際に Spring Boot のプロジェクトに Armeria を組み込んで使ってみるという内容だった。(その際のデモコードのリポジトリ) Armeriaのstarterが用意されているので比較的簡単に SpringのDIに組み込めるという印象だ。 Springのecosystemと共存する形でArmeriaを使ってgRPCやThriftをよしなに非同期にできるというのがメリットのようだ。Armeriaはh2cもデフォルトでサポートしているらしい。 // build.gradle dependencies { implementation &#39;com.linecorp.armeria:armeria-spring-boot-webflux-starter&#39; } dependencyManagement { imports { mavenBom &#39;com.linecorp.armeria:armeria-bom:0.96.0&#39; } }">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2019-11-22T04:40:32+09:00">
+    <meta property="article:modified_time" content="2019-11-22T04:40:32+09:00">
+    <meta property="article:tag" content="Tech-Conference">
+    <meta property="article:tag" content="Line">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Line Dev Day 2019に行ってきた話">
+  <meta name="twitter:description" content="Line Dev Day とは LINE DEV DAY会場 正式名称は LINE DEVELOPER DAY、LINE 社のカンファレンスで 2015 年から開催されている。今年は 11/21-11/22 にお台場で開催された。私は今回両日ともに参加した。私は以前LINEにエンジニアインターンに参加していたということもあってLine Dev Dayに参加したいと思っていた。 まず驚いたこと 受付では顔認証による参加者確認が行われていた。私は LINE アプリによる確認を行うレーンに並んで板が、やはり顔認証確認の方が受付のスピードが早かったように感じた。精度も良いのではないだろうか。 カンファレンスの内容について 発表は、キーノート、セッション、ブース、ポスター発表、各種ハンズオンという構成になっている。 両日とも午前中はキーノート、午後にセッションなどがある。セッションには各業界の有名人を招待しているようだった。例えば、甘利さんや徳丸さんが招待されていた。 今回、二日間で私は一回２時間のハンズオンを２つ受けたのでセッションはあまり聞けなかった。 以下で私が聞いて面白かったと思うセッションやハンズオンについて紹介したいと思う。 ハンズオン Learning Session について 一日目には「仕事をよりクリエイティブにするための『Learning Session』の実践」というハンズオンを受けた。 Learning Session とは LINE 社内で行っているモブプロの手法を使った勉強会のことを言うらしい。私は普段からペアプロやモブプロを行っており、自分としても好きな XP の手法なので参加した。Learning Session については下記のブログに纏められているので気になった方は読むといいだろう。(仕事をよりクリエイティブにするための「Learning Session」ノススメ ) ハンズオンがスタートしてからモブプロの軽い説明があり、それから各チームに別れた。チームは各々がやってみたいこと（例えば、circle ci や flutter や k8s など）を出し合い、自分の入りたいチームに入るというものだった。私は flutter を始めようと思っていたので flutter のチームに参加した。 それから１時間半ほどモブプロを行って、結果的には環境構築が終わって hello world が成功したところで終わってしまった。ダウンロードなどにどうしても時間が掛かってしまうので、その間は Dart や flutter のチュートリアルを眺めたり、他のフレームワーク（React や Xamarin など）の違いなどを調べていた。 ハンズオンの講師の方に「モブプログラミング・ベストプラクティス」を読んで実際にモブプロをしているという話をすると、モブプロ創始者の一人である Chris Lucian さんの論文を読むと良いと教えて頂いたので今度読もうと思う。 Armeria について 二日目には「Armeria と WebFlux でマイクロサービスを強化」のハンズオンを受けた。 Armeria とは LINE の OSS で非同期 RPC/API のためのライブラリーだ(https://github.com/line/armeria) LINE DEV DEY でも Armeria に関するセッションが複数行われており、Slack でも採用されているようだ。 ハンズオンの内容としては、実際に Spring Boot のプロジェクトに Armeria を組み込んで使ってみるという内容だった。(その際のデモコードのリポジトリ) Armeriaのstarterが用意されているので比較的簡単に SpringのDIに組み込めるという印象だ。 Springのecosystemと共存する形でArmeriaを使ってgRPCやThriftをよしなに非同期にできるというのがメリットのようだ。Armeriaはh2cもデフォルトでサポートしているらしい。 // build.gradle dependencies { implementation &#39;com.linecorp.armeria:armeria-spring-boot-webflux-starter&#39; } dependencyManagement { imports { mavenBom &#39;com.linecorp.armeria:armeria-bom:0.96.0&#39; } }">
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -30,7 +37,7 @@
 	<link rel="shortcut icon" href="/favicon.ico">
 
 	<title>Line Dev Day 2019に行ってきた話</title>
-	<link rel="stylesheet" href="https://takumi34.github.io/css/style.min.00a772dcbf8bcc9b36b1f2fca7c60d58eb4c3e0b1fb7bc7ec819455c2f0335b9.css" integrity="sha256-AKdy3L+LzJs2sfL8p8YNWOtMPgsft7x+yBlFXC8DNbk=" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://takumi34.github.io/css/style.min.12b6827a808924f2dcd2ab1e7ff2bb5097590d77d719443eb32f286717e1c3c9.css" integrity="sha256-EraCeoCJJPLc0qsef/K7UJdZDXfXGUQ+sy8oZxfhw8k=" crossorigin="anonymous">
 	
 </head>
 
@@ -40,7 +47,7 @@
 		<div class="hdr-wrapper section-inner">
 			<div class="hdr-left">
 				<div class="site-branding">
-					<a href="https://takumi34.github.io">chika</a>
+					<a href="https://takumi34.github.io/">chika</a>
 				</div>
 				<nav class="site-nav hide-in-mobile">
 					
@@ -51,7 +58,7 @@
 				</nav>
 			</div>
 			<div class="hdr-right hdr-icons">
-				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/untergrund_idol" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/takumi34" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://codepen.io/" target="_blank" rel="noopener me" title="Codepen"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon><line x1="12" y1="22" x2="12" y2="15.5"></line><polyline points="22 8.5 12 15.5 2 8.5"></polyline><polyline points="2 15.5 12 8.5 22 15.5"></polyline><line x1="12" y1="2" x2="12" y2="8.5"></line></svg></a><a href="https://www.kaggle.com/undergroundidol" target="_blank" rel="noopener me" title="Kaggle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+				<span class="hdr-social hide-in-mobile"><a href="https://github.com/takumi34" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://www.kaggle.com/undergroundidol" target="_blank" rel="noopener me" title="Kaggle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
 			</div>
 		</div>
 	</header>
@@ -71,10 +78,9 @@
 				<h1>Line Dev Day 2019に行ってきた話</h1>
 			</header>
 			<div class="content">
-				<h2 id="line-dev-day-とはhahahugoshortcode-s0-hbhb">Line Dev Day とは<figure class="center">
-    <img src="/images/line-dev-day.jpg" width="320" height="640"/> <figcaption>
-            <h4>LINE DEV DAY会場</h4>
-        </figcaption>
+				<h2 id="line-dev-day-とはhahahugoshortcode10s0hbhb">Line Dev Day とは<figure class="center"><img src="/images/line-dev-day.jpg" width="320" height="640"><figcaption>
+      <h4>LINE DEV DAY会場</h4>
+    </figcaption>
 </figure>
 </h2>
 <ul>
@@ -110,17 +116,17 @@
 <li>Armeriaのstarterが用意されているので比較的簡単に SpringのDIに組み込めるという印象だ。</li>
 <li>Springのecosystemと共存する形でArmeriaを使ってgRPCやThriftをよしなに非同期にできるというのがメリットのようだ。Armeriaはh2cもデフォルトでサポートしているらしい。</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-groovy" data-lang="groovy"><span class="c1">// build.gradle
-</span><span class="c1"></span><span class="n">dependencies</span> <span class="o">{</span>
-    <span class="n">implementation</span> <span class="s1">&#39;com.linecorp.armeria:armeria-spring-boot-webflux-starter&#39;</span>
-<span class="o">}</span>
-
-<span class="n">dependencyManagement</span> <span class="o">{</span>
-	<span class="n">imports</span> <span class="o">{</span>
-		<span class="n">mavenBom</span> <span class="s1">&#39;com.linecorp.armeria:armeria-bom:0.96.0&#39;</span>
-	<span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="c1">// build.gradle
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dependencies</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">implementation</span> <span class="s1">&#39;com.linecorp.armeria:armeria-spring-boot-webflux-starter&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dependencyManagement</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">imports</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">mavenBom</span> <span class="s1">&#39;com.linecorp.armeria:armeria-bom:0.96.0&#39;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div>
 			</div>
 			<hr class="post-end">
 			<footer class="post-info">
@@ -140,31 +146,11 @@
 			</a>
 		</div>
 		<div id="comments" class="thin">
-<div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "underground-idol-blog" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 	</main>
 
 	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
-		<p>&copy; 2021 <a href="https://takumi34.github.io">chika</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>  <a href="https://takumi34.github.io/privacy-policy">Privacy Policy</a></p>
+		<p>&copy; 2025 <a href="https://takumi34.github.io/"></a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>  <a href="https://takumi34.github.io/privacy-policy">Privacy Policy</a></p>
 		<p>
 			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://takumi34.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
 		</p>
@@ -172,20 +158,8 @@
 
 
 
-	<script src="https://takumi34.github.io/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>
+	<script src="https://takumi34.github.io/js/bundle.min.580988ed2982bcbb74a1773c7abea97b43e4c43b9324e10cda0813ec6ec4bb67.js" integrity="sha256-WAmI7SmCvLt0oXc8er6pe0PkxDuTJOEM2ggT7G7Eu2c=" crossorigin="anonymous"></script>
 	
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-153631856-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
 </body>
 
 </html>

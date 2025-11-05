@@ -4,18 +4,17 @@
     <title>Coursera on chika</title>
     <link>https://takumi34.github.io/tags/coursera/</link>
     <description>Recent content in Coursera on chika</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 04 Jan 2020 04:15:28 +0900</lastBuildDate><atom:link href="https://takumi34.github.io/tags/coursera/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Jan 2020 04:15:28 +0900</lastBuildDate>
+    <atom:link href="https://takumi34.github.io/tags/coursera/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CourseraでGCPのコースを修了した話</title>
       <link>https://takumi34.github.io/posts/gcp-coursera/</link>
       <pubDate>Sat, 04 Jan 2020 04:15:28 +0900</pubDate>
-      
       <guid>https://takumi34.github.io/posts/gcp-coursera/</guid>
-      <description>とりあえず修了したのは以下 Google Cloud Platform Fundamentals: Core Infrastructure 日本語版 Essential Cloud Infrastructure: Foundation 日本語版 Architecting with Google Kubernetes Engine: Foundations 日本語版 Courseraとは オンラインで色々な授業が受けられるサー</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;とりあえず修了したのは以下&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Google Cloud Platform Fundamentals: Core Infrastructure 日本語版&lt;/li&gt;&#xA;&lt;li&gt;Essential Cloud Infrastructure: Foundation 日本語版&lt;/li&gt;&#xA;&lt;li&gt;Architecting with Google Kubernetes Engine: Foundations 日本語版&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;courseraとは&#34;&gt;Courseraとは&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;オンラインで色々な授業が受けられるサービス。有名なので知ってる人も多いはず。&lt;/li&gt;&#xA;&lt;li&gt;ただやる気がないと全然続かないのでそこが一番難しいと思う。かく言う私も昔受けてみたものの途中で挫折したことがある。&lt;/li&gt;&#xA;&lt;li&gt;講座を修了すると修了証が貰える。例えばこういう感じ。&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;https://takumi34.github.io/images/coursera_k8s.png&#34; width=&#34;320&#34; height=&#34;640&#34;&gt;&lt;figcaption&gt;&#xA;       &lt;h4&gt;修了証&lt;/h4&gt;&#xA;     &lt;/figcaption&gt;&#xA; &lt;/figure&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;受けた理由&#34;&gt;受けた理由&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;多分GCPを勉強するにはCourseraを受けるのが現時点では一番良い方法なのではないだろうか。Googleが公式に提供しているものなので講座の内容も信頼できるし、Qwiklabsをやることによって実際にGCPを動かすこともできるので至れり尽くせりだと言える。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;内容&#34;&gt;内容&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;講義の動画を見る→問題を解く→Qwiklabsで実際にGCPを触わる、ということの繰り返し。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;感想&#34;&gt;感想&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;同じことの繰り返しで途中で飽きるので、気を強く持つのが大事。&lt;/li&gt;&#xA;&lt;li&gt;Qwiklabsのシステムは素晴らしいのだが、途中にあるテストに落ちたときに何が原因で落ちたのかがわからないので、そこを改善してほしい。&lt;/li&gt;&#xA;&lt;li&gt;今回受けた講座は日本語版のものなのだが、やはり翻訳があまり良くない部分が多い。なので結局英語で聞いて読んでいた。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;今後&#34;&gt;今後&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GCPの講座は他にもたくさんあるので、暇なときにまた受けようと思う。&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
-    
   </channel>
 </rss>
