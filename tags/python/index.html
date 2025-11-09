@@ -29,6 +29,78 @@
 	<title>Python</title>
 	<link rel="alternate" type="application/rss+xml+xml" href="https://takumi34.github.io/tags/python/index.xml" title="chika" />
 	<link rel="stylesheet" href="https://takumi34.github.io/css/style.min.12b6827a808924f2dcd2ab1e7ff2bb5097590d77d719443eb32f286717e1c3c9.css" integrity="sha256-EraCeoCJJPLc0qsef/K7UJdZDXfXGUQ+sy8oZxfhw8k=" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://takumi34.github.io/css/custom.css">
+<script>
+
+
+(function() {
+  'use strict';
+
+  
+  var CONFIG = {
+    STORAGE_KEY: 'splashShown',
+    ANIMATION_DURATION: 3500,
+    SPLASH_ID: 'splash-screen',
+    HIDE_CLASS: 'hide',
+    WELCOME_TEXT: 'Welcome to chika\'s blog'
+  };
+
+  
+
+  function wasAlreadyShown() {
+    try {
+      return sessionStorage.getItem(CONFIG.STORAGE_KEY) === 'true';
+    } catch (e) {
+      
+      return false;
+    }
+  }
+
+  
+
+  function createSplashElement() {
+    var splash = document.createElement('div');
+    splash.id = CONFIG.SPLASH_ID;
+    splash.innerHTML =
+      '<div class="splash-ball"></div>' +
+      '<div class="splash-text">' + CONFIG.WELCOME_TEXT + '</div>';
+    return splash;
+  }
+
+  
+
+  function hideSplash(splashElement) {
+    splashElement.classList.add(CONFIG.HIDE_CLASS);
+    try {
+      sessionStorage.setItem(CONFIG.STORAGE_KEY, 'true');
+    } catch (e) {
+      
+    }
+  }
+
+  
+
+  function initSplash() {
+    if (wasAlreadyShown()) {
+      return;
+    }
+
+    var splash = createSplashElement();
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.insertBefore(splash, document.body.firstChild);
+
+      setTimeout(function() {
+        hideSplash(splash);
+      }, CONFIG.ANIMATION_DURATION);
+    });
+  }
+
+  
+  initSplash();
+})();
+</script>
+
 </head>
 
 <body id="page">
