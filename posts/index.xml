@@ -21,6 +21,8 @@
 			<content type="html"><![CDATA[<p>この記事は、上位大学の英語入試問題がスラスラ解けるレベル（文法・語彙の知識は十分）だけど，英語で話すのが苦手な人を対象にしています。</p>
 <p>このレベルの方に足りていないのは、知識ではなく話す量だと思います。
 これから紹介する訓練を毎日数時間、数ヶ月間継続すれば、一気に流暢に話せるようになります。</p>
+<p>私が最も効果を感じたのは「一分間スピーチ→AI添削→もう一度一分間スピーチ」を繰り返す勉強法です。（実践編を参照）</p>
+<p>もし一つだけ勉強法を選ぶなら，この方法をおすすめします。この記事では，このトレーニングを中心にスピーキング力を伸ばすための学習法をレベル別に紹介します。</p>
 <hr>
 <h2 id="初級編知っている知識を止まらずに出す訓練">初級編：知っている知識を「止まらずに出す」訓練</h2>
 <p>まずは「間違えないこと」よりも「止まらずに話すこと」を目指します</p>
@@ -117,10 +119,12 @@
 </li>
 </ol>
 <h2 id="オススメ参考書">オススメ参考書</h2>
-<p><a href="https://amzn.asia/d/hso2ZQ5">https://amzn.asia/d/hso2ZQ5</a></p>
-<p>パターンプラクティスで練習する（初級編，中級編，上級編などがある．ただ初級編で既に難しい．私は初級編を半年やりました．）</p>
-<p><a href="https://amzn.asia/d/ikrMjdn">https://amzn.asia/d/ikrMjdn</a></p>
-<p>第二言語学習についての知見</p>
+<p><a href="https://amzn.asia/d/hso2ZQ5">https://amzn.asia/d/hso2ZQ5</a>
+『英語のハノン 初級――スピーキングのためのやりなおし英文法スーパードリル』
+パターンプラクティスで練習する（初級編，中級編，上級編などがある．ただ初級編で既に難しい．私は初級編を半年やりました．）</p>
+<p><a href="https://amzn.asia/d/ikrMjdn">https://amzn.asia/d/ikrMjdn</a>
+『最新の第二言語習得研究に基づく 究極の英語学習法』
+第二言語学習についての知見を学べる</p>
 <h2 id="実際のスピーキング例">実際のスピーキング例</h2>
 <p><a href="https://www.youtube.com/live/mK8I9cUW7a4">https://www.youtube.com/live/mK8I9cUW7a4</a></p>
 ]]></content>
@@ -1648,7 +1652,7 @@
 			<pubDate>Fri, 22 Nov 2019 04:40:32 +0900</pubDate>
 			
 			<guid>https://takumi34.github.io/posts/line-dev-day-2019/</guid>
-			<description>&lt;h2 id=&#34;line-dev-day-とはhahahugoshortcode10s0hbhb&#34;&gt;Line Dev Day とは&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;https://takumi34.github.io/images/line-dev-day.jpg&#34; width=&#34;320&#34; height=&#34;640&#34;&gt;&lt;figcaption&gt;
+			<description>&lt;h2 id=&#34;line-dev-day-とはhahahugoshortcode11s0hbhb&#34;&gt;Line Dev Day とは&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;https://takumi34.github.io/images/line-dev-day.jpg&#34; width=&#34;320&#34; height=&#34;640&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;LINE DEV DAY会場&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1697,7 +1701,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-			<content type="html"><![CDATA[<h2 id="line-dev-day-とはhahahugoshortcode10s0hbhb">Line Dev Day とは<figure class="center"><img src="/images/line-dev-day.jpg" width="320" height="640"><figcaption>
+			<content type="html"><![CDATA[<h2 id="line-dev-day-とはhahahugoshortcode11s0hbhb">Line Dev Day とは<figure class="center"><img src="/images/line-dev-day.jpg" width="320" height="640"><figcaption>
       <h4>LINE DEV DAY会場</h4>
     </figcaption>
 </figure>
