@@ -3,7 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://takumi34.github.io/</loc>
-    <lastmod>2021-06-07T01:49:55+09:00</lastmod>
+    <lastmod>2026-07-28T21:45:00+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/</loc>
+    <lastmod>2026-07-28T21:45:00+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/</loc>
+    <lastmod>2026-07-28T21:45:00+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/tags/untagged/</loc>
+    <lastmod>2026-07-28T21:45:00+09:00</lastmod>
+  </url><url>
+    <loc>https://takumi34.github.io/posts/english_speaking_tips/</loc>
+    <lastmod>2026-07-28T21:45:00+09:00</lastmod>
   </url><url>
     <loc>https://takumi34.github.io/tags/java/</loc>
     <lastmod>2021-06-07T01:49:55+09:00</lastmod>
@@ -11,16 +23,10 @@
     <loc>https://takumi34.github.io/tags/junit/</loc>
     <lastmod>2021-06-07T01:49:55+09:00</lastmod>
   </url><url>
-    <loc>https://takumi34.github.io/posts/</loc>
-    <lastmod>2021-06-07T01:49:55+09:00</lastmod>
-  </url><url>
     <loc>https://takumi34.github.io/tags/spring/</loc>
     <lastmod>2021-06-07T01:49:55+09:00</lastmod>
   </url><url>
     <loc>https://takumi34.github.io/posts/logger_test_springboot/</loc>
-    <lastmod>2021-06-07T01:49:55+09:00</lastmod>
-  </url><url>
-    <loc>https://takumi34.github.io/tags/</loc>
     <lastmod>2021-06-07T01:49:55+09:00</lastmod>
   </url><url>
     <loc>https://takumi34.github.io/tags/hugo/</loc>
@@ -114,9 +120,6 @@
     <lastmod>2019-10-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://takumi34.github.io/posts/test/</loc>
-    <lastmod>2019-06-08T18:50:57+09:00</lastmod>
-  </url><url>
-    <loc>https://takumi34.github.io/tags/untagged/</loc>
     <lastmod>2019-06-08T18:50:57+09:00</lastmod>
   </url><url>
     <loc>https://takumi34.github.io/privacy-policy/</loc>
